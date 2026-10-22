@@ -24,10 +24,10 @@ public class Globals : MonoBehaviour
     public bool jumpEnable;
     public bool flashlightEnabled = false;
 
-    //[Header("Cinematic Bools")] Used to handle cinematics. Can be removed if new system is being implemented or let Sam handle cinematics
-    /*public bool isCinematic = false;
+    [Header("Cinematic Bools")] //Used to handle cinematics. Can be removed if new system is being implemented or let Sam handle cinematics
+    public bool isCinematic = false;
     public bool cinematicIsSkipable = false;
-    public bool cinematicSkipped = false;*/
+    public bool cinematicSkipped = false;
 
     [Header("Global SFX")]
     public AudioClip radioInClip;

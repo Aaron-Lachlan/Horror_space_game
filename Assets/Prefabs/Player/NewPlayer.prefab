@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 7924854298004379655}
   - component: {fileID: 5236106912562598382}
   - component: {fileID: 713713326244984870}
-  - component: {fileID: 4134689845845632481}
+  - component: {fileID: 3997075631619518728}
   - component: {fileID: 1367732864957089761}
   m_Layer: 10
   m_Name: Character
@@ -473,7 +473,7 @@ MonoBehaviour:
   CheckMovementInitialOverlaps: 1
   KillVelocityWhenExceedMaxMovementIterations: 1
   KillRemainingMovementWhenExceedMaxMovementIterations: 1
---- !u!114 &4134689845845632481
+--- !u!114 &3997075631619518728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -482,7 +482,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3341368954550796991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2de4af313630c1249b3038371d4c03c5, type: 3}
+  m_Script: {fileID: 11500000, guid: b17cb403b46bfe246beb9b415d78d83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCharacter
   motor: {fileID: 713713326244984870}
@@ -551,7 +551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2657168066096453147}
-  - component: {fileID: 4431158790527206837}
+  - component: {fileID: 816018102394231935}
   m_Layer: 10
   m_Name: PlayerCameraContainer
   m_TagString: Player
@@ -575,7 +575,7 @@ Transform:
   - {fileID: 2248749759860785984}
   m_Father: {fileID: 7924854298004379655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4431158790527206837
+--- !u!114 &816018102394231935
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3694590853458919348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e0c5b39253eb247b1cfb5d7cfba985, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e14431d169a5444da7ff6e9d9f6c02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCamera
   lookSensitivity: 0.1
@@ -887,7 +887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7468675099668659421}
   - component: {fileID: 2195542852038031503}
-  - component: {fileID: 4588517775060110182}
+  - component: {fileID: 5569175938469527850}
   m_Layer: 10
   m_Name: InteractableScan
   m_TagString: Untagged
@@ -933,7 +933,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &4588517775060110182
+--- !u!114 &5569175938469527850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -942,7 +942,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7820529657141784799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d72502a863ac2a545adbed651f5b3668, type: 3}
+  m_Script: {fileID: 11500000, guid: bceea85947ace3c449fd991dee9a6bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HighlightInteractable
   interactables: []
@@ -987,14 +987,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7900504028649510866}
   m_Enabled: 1
-  serializedVersion: 11
+  serializedVersion: 13
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 7
   m_Range: 30
   m_SpotAngle: 64.402115
   m_InnerSpotAngle: 29.62434
-  m_CookieSize: 10
+  m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
     m_Type: 0
     m_Resolution: -1
@@ -1039,7 +1039,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -1340,7 +1340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2248749759860785984}
-  - component: {fileID: 535017167935661224}
+  - component: {fileID: 8596047445369856267}
   m_Layer: 10
   m_Name: Spring
   m_TagString: Player
@@ -1364,7 +1364,7 @@ Transform:
   - {fileID: 8680331059489772170}
   m_Father: {fileID: 2657168066096453147}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &535017167935661224
+--- !u!114 &8596047445369856267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1373,7 +1373,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8160238257403624775}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38c66b174323f8647b67bd8c5bd8f5b8, type: 3}
+  m_Script: {fileID: 11500000, guid: d417b2c50856bb54395877d22df32635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraSpring
   halfLife: 0.08
@@ -1389,7 +1389,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8680331059489772170}
-  - component: {fileID: 4737634773928257093}
+  - component: {fileID: 490177328893791724}
   m_Layer: 10
   m_Name: Lean
   m_TagString: Player
@@ -1413,7 +1413,7 @@ Transform:
   - {fileID: 4579915881196338503}
   m_Father: {fileID: 2248749759860785984}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4737634773928257093
+--- !u!114 &490177328893791724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1422,7 +1422,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8242509140901709556}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38bd6999c0eb7c3429936ea56cb85761, type: 3}
+  m_Script: {fileID: 11500000, guid: f0a3cb2f5d3a30f46a2b0bd858c4308f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraLean
   attackDamping: 0.5
@@ -1566,8 +1566,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2520982350387923369}
-  - component: {fileID: 3584990138461212783}
-  - component: {fileID: 6642332525887819162}
+  - component: {fileID: 3710194317538007538}
+  - component: {fileID: 9101706915268578588}
   m_Layer: 10
   m_Name: NewPlayer
   m_TagString: Player
@@ -1591,7 +1591,7 @@ Transform:
   - {fileID: 7924854298004379655}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3584990138461212783
+--- !u!114 &3710194317538007538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1600,21 +1600,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 9102056580547664420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 974a144f7d540bb4595c736801112c32, type: 3}
+  m_Script: {fileID: 11500000, guid: cc105a88ae1e888408fd6a312f3670ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   globals: {fileID: 0}
   globalsObject: {fileID: 0}
-  playerCharacter: {fileID: 4134689845845632481}
-  playerCamera: {fileID: 4431158790527206837}
-  cameraSpring: {fileID: 535017167935661224}
-  cameraLean: {fileID: 4737634773928257093}
+  playerCharacter: {fileID: 3997075631619518728}
+  playerCamera: {fileID: 816018102394231935}
+  cameraSpring: {fileID: 8596047445369856267}
+  cameraLean: {fileID: 490177328893791724}
   playerFlashlight: {fileID: 7900504028649510866}
   flashlightToggle: 1
-  flashlightOnClip: {fileID: 8300000, guid: d4929a3be91a8ba4b85cfd033a545066, type: 3}
-  flashlightOffClip: {fileID: 8300000, guid: 7ed7d38c4a81e544f9f90a21791b4b98, type: 3}
+  flashlightOnClip: {fileID: 0}
+  flashlightOffClip: {fileID: 0}
   flashlightAudioSource: {fileID: 6407868523735762602}
---- !u!114 &6642332525887819162
+--- !u!114 &9101706915268578588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1623,7 +1623,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9102056580547664420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58bcf1a5ecbc5654bb21c3402b72f541, type: 3}
+  m_Script: {fileID: 11500000, guid: 5db7267826fd2204cafc301b4f70649c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
   playerCamera: {fileID: 7789818195768200745}
@@ -1988,6 +1988,10 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2421214241813294232, guid: 8dd537be26e29904d804b1a9fb3fb9a3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bdd613e3196935545bdfce33c659196f, type: 2}
     - target: {fileID: 2630804360753915479, guid: 8dd537be26e29904d804b1a9fb3fb9a3, type: 3}
       propertyPath: m_Layer
       value: 11
@@ -2079,7 +2083,7 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: 8dd537be26e29904d804b1a9fb3fb9a3, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 934e70250b2e3824b94a64d12c18ae02, type: 2}
+      objectReference: {fileID: 9100000, guid: 2389fc13db5ff904faef5f8f69014cb6, type: 2}
     - target: {fileID: 5945287897401600589, guid: 8dd537be26e29904d804b1a9fb3fb9a3, type: 3}
       propertyPath: m_Layer
       value: 11
@@ -2166,7 +2170,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8dd537be26e29904d804b1a9fb3fb9a3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4228621047698296942}
+      addedObject: {fileID: 5769276399986983329}
   m_SourcePrefab: {fileID: 100100000, guid: 8dd537be26e29904d804b1a9fb3fb9a3, type: 3}
 --- !u!4 &2570447901114500895 stripped
 Transform:
@@ -2178,7 +2182,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8dd537be26e29904d804b1a9fb3fb9a3, type: 3}
   m_PrefabInstance: {fileID: 2604956086061064436}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4228621047698296942
+--- !u!114 &5769276399986983329
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2187,11 +2191,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2947535672483012005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfe75eea82d9213478d5f6e58694868c, type: 3}
+  m_Script: {fileID: 11500000, guid: d3e5127aa255fac4f9877128179095cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAnimationHandler
   animator: {fileID: 8452197034398178661}
-  playerCharacter: {fileID: 4134689845845632481}
+  playerCharacter: {fileID: 3997075631619518728}
   isArms: 1
 --- !u!95 &8452197034398178661 stripped
 Animator:

@@ -76,7 +76,7 @@ public class PlayerInteraction : MonoBehaviour
     void DisableCurrentInteractable()
     {
         //print("Disable interact");
-        HUDHelpText.instance.DisableInteractionText();
+        //HUDHelpText.instance.DisableInteractionText();
         if(currentInteractable && !currentInteractable.isDoor)
         {
             currentInteractable.DisableOutline();

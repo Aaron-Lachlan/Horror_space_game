@@ -82,14 +82,14 @@ public class Player : MonoBehaviour
             if(flashlightToggle && globals.flashlightEnabled && Input.GetKeyDown(KeyCode.Q))
             {
                 flashlightToggle = false;
-                flashlightAudioSource.PlayOneShot(flashlightOffClip);
+                //flashlightAudioSource.PlayOneShot(flashlightOffClip);
                 playerFlashlight.SetActive(false);
                 globals.flashlightEnabled = false;
             }
             if(flashlightToggle && !globals.flashlightEnabled && Input.GetKeyDown(KeyCode.Q))
             {
                 flashlightToggle = false;
-                flashlightAudioSource.PlayOneShot(flashlightOnClip);
+                //flashlightAudioSource.PlayOneShot(flashlightOnClip);
                 playerFlashlight.SetActive(true);
                 globals.flashlightEnabled = true;
             }
