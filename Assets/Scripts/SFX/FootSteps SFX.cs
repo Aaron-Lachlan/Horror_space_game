@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Audio;
+
+public class FootStepsSFX : MaterialType
+{
+    
+
+    [System.Serializable]
+    public class SurfaceAudioProfile
+    {
+        public SurfaceType SurfaceType;
+        public AudioClip[] footstepSounds;
+        [Range(0, 1)]
+        public float VolumeOfAll = 1;
+    }
+    [Header("Surface Profiles")]
+    [SerializeField] private SurfaceAudioProfile[] surfaceProfiles;
+
+    private Dictionary<string, SurfaceAudioProfile> surfaceLookup;
+    [SerializeField] AudioSource AudioSource;
+
+    private int LastPlayedClip;
+    private int randomIndex;
+
+
+    public void PlaySFX(MaterialSfx hitSurfaceType)
+    {
+        foreach (var profile in surfaceProfiles)
+        {
+            
+            if (profile.SurfaceType == hitSurfaceType.currentSettings)
+            {
+
+
+                while (randomIndex == LastPlayedClip)
+                {
+                    randomIndex = UnityEngine.Random.Range(0, profile.footstepSounds.Length);
+                }
+
+                AudioSource.volume = profile.VolumeOfAll;
+                AudioSource.PlayOneShot(profile.footstepSounds[randomIndex]);
+                LastPlayedClip = randomIndex;
+                return;
+                
+
+            }
+            
+        }   
+
+
+    }
+}
