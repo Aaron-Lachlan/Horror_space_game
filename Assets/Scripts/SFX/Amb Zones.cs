@@ -8,7 +8,7 @@ public class AmbZones : Amb
 
     private void Start()
     {
-        AmbManager = GetComponentInParent<AmbManager>();
+        AmbManager = FindAnyObjectByType<AmbManager>();
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 2800000, guid: 9059e055aa673b3469a5c2896c0b8fb5, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6830855457562411693
 Transform:
   m_ObjectHideFlags: 0
@@ -30,8 +30,65 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8987600624361075894}
+  - {fileID: 4558566368096474478}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &856873559804783384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4558566368096474478}
+  - component: {fileID: 3850407241888945954}
+  m_Layer: 0
+  m_Name: Amb manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4558566368096474478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856873559804783384}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6830855457562411693}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3850407241888945954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856873559804783384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41fc1e8525b7fe468f69286b79cbbd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AmbManager
+  crossFadeDuration: 2
+  AmbAudioProfiles:
+  - AmbTypes: 0
+    AmbSound: {fileID: 8300000, guid: 0ffa261744b154143ab4004c9c8ca9d3, type: 3}
+    Volume: 0.5
+  - AmbTypes: 1
+    AmbSound: {fileID: 8300000, guid: 97bd5a6677a6c5441b009d47eb6954f6, type: 3}
+    Volume: 0.5
+  - AmbTypes: 2
+    AmbSound: {fileID: 8300000, guid: 004f4098045150e4ca9ddaba7b90ff90, type: 3}
+    Volume: 0.5
+  outputMixerGroup: {fileID: 24300002, guid: a4e4357887577234385a306f207e7d64, type: 2}
 --- !u!1 &4716749561075261287
 GameObject:
   m_ObjectHideFlags: 0
