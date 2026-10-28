@@ -24,6 +24,23 @@ public class FootStepsSFX : MaterialType
     private int LastPlayedClip;
     private int randomIndex;
 
+    void Awake()
+    {
+        if(AudioSource == null)
+        {
+            print("Feet not found. Linking...");
+            AudioSource = GameObject.Find("Feet").GetComponent<AudioSource>();
+            if(AudioSource != null)
+            {
+                print("Linked...");
+            }
+            else
+            {
+                print("Player must be missing. Add player to level");
+            }
+        }
+    }
+
 
     public void PlaySFX(MaterialSfx hitSurfaceType)
     {

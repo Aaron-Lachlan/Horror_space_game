@@ -4,7 +4,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] Globals globals;
-    [SerializeField] GameObject globalsObject;
+    //[SerializeField] GameObject globalsObject;
     [SerializeField] PlayerCharacter playerCharacter;
     [Header("Camera")]
     [SerializeField] PlayerCamera playerCamera;

@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Weapon
+  - InputHandler
+  - Interactable
+  - DoorInteractable
   layers:
   - Default
   - TransparentFX
