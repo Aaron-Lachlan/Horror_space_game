@@ -72,7 +72,7 @@ MonoBehaviour:
   - 1.6
   hearingRadius: 10
   attackRadius: 1.29
-  attackDamage: 100
+  attackDamage: 2
   attackInterval: 1.5
   turnSpeed: 8
   patrolSpeed: 2.5
