@@ -383,17 +383,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3302786463110786614, guid: 789c9cad80a7d9f43bf836cb8769d81b, type: 3}
-      propertyPath: collider
-      value: 
-      objectReference: {fileID: 2017088330}
     - target: {fileID: 3651507567403716682, guid: 789c9cad80a7d9f43bf836cb8769d81b, type: 3}
       propertyPath: m_Name
       value: BlastDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: 3651507567403716682, guid: 789c9cad80a7d9f43bf836cb8769d81b, type: 3}
-      propertyPath: m_TagString
-      value: DoorInteractable
       objectReference: {fileID: 0}
     - target: {fileID: 4172323807518755568, guid: 789c9cad80a7d9f43bf836cb8769d81b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -435,55 +427,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8686201704889512948, guid: 789c9cad80a7d9f43bf836cb8769d81b, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3302786463110786614, guid: 789c9cad80a7d9f43bf836cb8769d81b, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3651507567403716682, guid: 789c9cad80a7d9f43bf836cb8769d81b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1042677118}
-    - targetCorrespondingSourceObject: {fileID: 966757894811682775, guid: 789c9cad80a7d9f43bf836cb8769d81b, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 2017088332}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 789c9cad80a7d9f43bf836cb8769d81b, type: 3}
---- !u!1 &1042677113 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3651507567403716682, guid: 789c9cad80a7d9f43bf836cb8769d81b, type: 3}
-  m_PrefabInstance: {fileID: 1042677112}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1042677114 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2040266292490761642, guid: 789c9cad80a7d9f43bf836cb8769d81b, type: 3}
-  m_PrefabInstance: {fileID: 1042677112}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1042677115 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8000432193622134922, guid: 789c9cad80a7d9f43bf836cb8769d81b, type: 3}
-  m_PrefabInstance: {fileID: 1042677112}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1042677118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042677113}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Outline
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &1145342710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,48 +1199,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984062222}
   m_CullTransparentMesh: 1
---- !u!1 &2017088329 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 966757894811682775, guid: 789c9cad80a7d9f43bf836cb8769d81b, type: 3}
-  m_PrefabInstance: {fileID: 1042677112}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &2017088330 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 6073851246181226827, guid: 789c9cad80a7d9f43bf836cb8769d81b, type: 3}
-  m_PrefabInstance: {fileID: 1042677112}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2017088332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2017088329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5897c5b8814ed0649b5c84c2a6d3227e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlidingDoor
-  isButtonDoor: 1
-  collisionAdjustmentNeeded: 1
-  collider: {fileID: 2017088330}
-  colliderSizeClosed: {x: 6.1, y: 4, z: 0.5}
-  colliderSizeOpen: {x: 6.1, y: 2, z: 0.375}
-  colliderCentreClosed: {x: 0, y: 0, z: 0}
-  colliderCentreOpen: {x: 0, y: 1, z: 0}
-  isLargeDoor: 1
-  doorMessage: PRESS E TO OPEN DOOR
-  animator: {fileID: 1042677115}
-  playerTag: Player
-  openCloseAnimBoolName: OpenDoor
-  isOpenOrClosed: 
-  audioSource: {fileID: 1042677114}
-  audioSourceAlarm: {fileID: 0}
-  openAudio: {fileID: 8300000, guid: 1a0d259f33741f745b1ca01f5a54664f, type: 3}
-  closeAudio: {fileID: 8300000, guid: d674b67fcb02c1a4aaf6a2f672e55cbc, type: 3}
-  alarmAudio: {fileID: 0}
-  doorOpen: 0
-  animLayer: 0
 --- !u!1001 &2039548453
 PrefabInstance:
   m_ObjectHideFlags: 0
