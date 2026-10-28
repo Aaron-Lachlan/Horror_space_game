@@ -5,7 +5,7 @@ public class Health : MonoBehaviour, IDamageable
     public float health = 3;
 
 
-
+    public DeathPanelController deathPanelController;
 
     public void TakeDamage(float amount)
     {
@@ -25,6 +25,8 @@ public class Health : MonoBehaviour, IDamageable
             }
             
             */
+
+            
         }
 
             
@@ -32,6 +34,8 @@ public class Health : MonoBehaviour, IDamageable
     public void GameOverTrigger()
     {
         //player death
-
+        deathPanelController.isDead = true;
     }
+
+
 }
