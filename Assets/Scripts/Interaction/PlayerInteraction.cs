@@ -7,6 +7,8 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] Camera playerCamera;
     public float playerReach;
     Interactable currentInteractable;
+    SlidingDoor currentInteractableDoor;
+    //Interactable currentInteractable;
 
     // Update is called once per frame
     void Update()
@@ -16,6 +18,10 @@ public class PlayerInteraction : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
         {
             currentInteractable.Interact();
+        }
+        if(Input.GetKeyDown(KeyCode.E) && currentInteractableDoor != null)
+        {
+            currentInteractableDoor.DoorInteract();
         }
     }
 
@@ -28,6 +34,7 @@ public class PlayerInteraction : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit, playerReach))
         {
+            //If it is an interactable OTHER than a door
             if(hit.collider.tag == "Interactable")
             {
                 Interactable newInteractable = hit.collider.GetComponent<Interactable>();
@@ -55,8 +62,39 @@ public class PlayerInteraction : MonoBehaviour
             DisableCurrentInteractable();
         }
 
+        if(Physics.Raycast(ray, out hit, playerReach))
+        {
+            if(hit.collider.tag == "DoorInteractable")
+            {
+                SlidingDoor newInteractableDoor = hit.collider.GetComponent<SlidingDoor>();
+
+                //Unfinised! Can be completed if we want a outline to appear around doors that are interactable
+                /*if(currentInteractableDoor && newInteractableDoor != currentInteractableDoor)
+                {
+                    currentInteractableDoor.DisableOutline();
+                }*/
+                if(newInteractableDoor.enabled && !newInteractableDoor.doorIsPlaying(newInteractableDoor.animator, "DoorOpening"))
+                {
+                    SetNewInteractableDoor(newInteractableDoor);
+                }
+                else
+                {
+                    DisableCurrentInteractableDoor();
+                }
+            }
+            else //If not interactable
+            {
+                DisableCurrentInteractableDoor();
+            }
+        }
+        else //If not in reach
+        {
+            DisableCurrentInteractableDoor();
+        }
+
     }
 
+    //Unknown
     /*void CheckInteractionRadius()
     {
         if(currentInteractable.isDoor)
@@ -68,15 +106,24 @@ public class PlayerInteraction : MonoBehaviour
         currentInteractable = newInteractable;
 
         if(!currentInteractable.isDoor)
+        {
             currentInteractable.EnableOutLine();
+            HUDHelpText.instance.EnableInteractionText(currentInteractable.message);
+        }
+    }
 
-        HUDHelpText.instance.EnableInteractionText(currentInteractable.message);
+    void SetNewInteractableDoor(SlidingDoor newInteractableDoor)
+    {
+        currentInteractableDoor = newInteractableDoor;
+
+        //currentInteractableDoor.EnableOutLine();
+        HUDHelpText.instance.EnableInteractionText(currentInteractableDoor.doorMessage);
     }
 
     void DisableCurrentInteractable()
     {
         //print("Disable interact");
-        //HUDHelpText.instance.DisableInteractionText();
+        HUDHelpText.instance.DisableInteractionText();
         if(currentInteractable && !currentInteractable.isDoor)
         {
             currentInteractable.DisableOutline();
@@ -84,6 +131,20 @@ public class PlayerInteraction : MonoBehaviour
         if(currentInteractable)
         {
             currentInteractable = null;
+        }
+    }
+
+    void DisableCurrentInteractableDoor()
+    {
+        //print("Disable interact");
+        HUDHelpText.instance.DisableInteractionText();
+        /*if(currentInteractableDoor && !currentInteractableDoor.isDoor)
+        {
+            currentInteractable.DisableOutline();
+        }*/
+        if(currentInteractableDoor)
+        {
+            currentInteractableDoor = null;
         }
     }
 }

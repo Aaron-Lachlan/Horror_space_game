@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -68,11 +69,14 @@ public class HUDHelpText : MonoBehaviour
 
     public void EnableInteractionText(string text)
     {
-        if(!pauseManager.isDocumentScreen)
+        //!When pause system implemented. Reenable this. This checks if a menu is being displayed currently before enabling interaction text (Probably redundant but I added it for a reason I think)
+        /*if(!pauseManager.isDocumentScreen)
         {
             interactionText.text = text;
             interactionText.gameObject.SetActive(true);
-        }
+        }*/
+        interactionText.text = text;
+        interactionText.gameObject.SetActive(true);
     }
 
     public void DisableInteractionText()
