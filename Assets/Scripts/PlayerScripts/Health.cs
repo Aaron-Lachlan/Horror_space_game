@@ -25,8 +25,8 @@ public class Health : MonoBehaviour, IDamageable
             }
             
             */
+            GameOverTrigger();
 
-            
         }
 
             
