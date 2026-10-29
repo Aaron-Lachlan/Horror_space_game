@@ -26,7 +26,7 @@ public class HighlightInteractable : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    /*void OnTriggerEnter(Collider other)
     {
         interactables.Add(other.gameObject);
     }
@@ -38,5 +38,5 @@ public class HighlightInteractable : MonoBehaviour
             gameObject.GetComponent<Interactable>().DisableOutline();
         }
         interactables.Remove(other.gameObject);
-    }
+    }*/
 }

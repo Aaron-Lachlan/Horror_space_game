@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
 public class FootStepsSFX : MaterialType
 {
     
+    [SerializeField] bool isPlayer;
+
+    [Tooltip("Add different audio for the surfaces so the player can tell its the alien")]
+    [SerializeField] bool isAlien;
 
     [System.Serializable]
     public class SurfaceAudioProfile
@@ -29,7 +34,10 @@ public class FootStepsSFX : MaterialType
         if(AudioSource == null)
         {
             print("Feet not found. Linking...");
-            AudioSource = GameObject.Find("Feet").GetComponent<AudioSource>();
+            if(isPlayer)
+                AudioSource = GameObject.Find("Feet").GetComponent<AudioSource>();
+            if(isAlien)
+                AudioSource = GameObject.Find("FeetAlien").GetComponent<AudioSource>();
             if(AudioSource != null)
             {
                 print("Linked...");

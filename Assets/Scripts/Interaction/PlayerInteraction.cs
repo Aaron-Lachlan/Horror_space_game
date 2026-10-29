@@ -73,7 +73,7 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     currentInteractableDoor.DisableOutline();
                 }*/
-                if(newInteractableDoor.enabled && !newInteractableDoor.doorIsPlaying(newInteractableDoor.animator, "DoorOpening"))
+                if(newInteractableDoor.enabled && !newInteractableDoor.doorIsPlaying(newInteractableDoor.animator, "DoorOpening") && !newInteractableDoor.doorIsPlaying(newInteractableDoor.animator, "DoorClosing"))
                 {
                     SetNewInteractableDoor(newInteractableDoor);
                 }
@@ -117,7 +117,17 @@ public class PlayerInteraction : MonoBehaviour
         currentInteractableDoor = newInteractableDoor;
 
         //currentInteractableDoor.EnableOutLine();
-        HUDHelpText.instance.EnableInteractionText(currentInteractableDoor.doorMessage);
+        if(!newInteractableDoor.doorOpen)
+        {
+            print("Set open text");
+            HUDHelpText.instance.EnableInteractionText(currentInteractableDoor.doorOpenMessage);
+        }
+
+        if(newInteractableDoor.doorOpen)
+        {
+            print("Set close text");
+            HUDHelpText.instance.EnableInteractionText(currentInteractableDoor.doorCloseMessage);
+        }
     }
 
     void DisableCurrentInteractable()

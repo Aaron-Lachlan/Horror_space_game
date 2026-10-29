@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4ec066cad2678fa4ab2dbf1c2c914f7c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.325
+      value: -7.9999995
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ec066cad2678fa4ab2dbf1c2c914f7c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ec066cad2678fa4ab2dbf1c2c914f7c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 28.9
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ec066cad2678fa4ab2dbf1c2c914f7c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -105,7 +105,7 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.15, y: 3, z: 1.5}
@@ -131,7 +131,7 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.15, y: 3, z: 1.5}
@@ -153,6 +153,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5897c5b8814ed0649b5c84c2a6d3227e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlidingDoor
+  isButtonDoor: 0
+  collisionAdjustmentNeeded: 0
+  collider: {fileID: 0}
+  colliderSizeClosed: {x: 0, y: 0, z: 0}
+  colliderSizeOpen: {x: 0, y: 0, z: 0}
+  colliderCentreClosed: {x: 0, y: 0, z: 0}
+  colliderCentreOpen: {x: 0, y: 0, z: 0}
+  isLargeDoor: 0
+  doorMessage: 
   animator: {fileID: 6975471252872990906}
   playerTag: Player
   openCloseAnimBoolName: DoorOpen
@@ -160,11 +169,10 @@ MonoBehaviour:
   audioSource: {fileID: 1900724499472488205}
   audioSourceAlarm: {fileID: 0}
   openAudio: {fileID: 8300000, guid: 7cac015f172bd114cb5fb73d2247a216, type: 3}
-  alarmAudio: {fileID: 0}
   closeAudio: {fileID: 8300000, guid: fe49131f64969c249bb4b040ec7a3ce5, type: 3}
+  alarmAudio: {fileID: 0}
   doorOpen: 0
-  isButtonDoor: 0
-  isLargeDoor: 0
+  animLayer: 0
 --- !u!82 &1900724499472488205
 AudioSource:
   m_ObjectHideFlags: 0
