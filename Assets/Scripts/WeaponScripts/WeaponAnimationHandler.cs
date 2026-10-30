@@ -10,73 +10,76 @@ public class WeaponAnimationHandler : MonoBehaviour
 
     void Awake()
     {
-        /*playerCharacter = GameObject.FindWithTag("Player").GetComponent<PlayerCharacter>();
+        playerCharacter = GameObject.FindWithTag("PlayerCharacter").GetComponent<PlayerCharacter>();
         if(playerCharacter != null)
         {
             print("Player Controller Found");
-        }*/
+        }
         //animator.SetBool("Sprinting", false);
     }
 
     void Update()
     {
         //if(state.stance is Stance.Stand)
-        var state = playerCharacter.GetState();
-        //Debug.Log(state.stance);
-        //var grounded = playerCharacter.GetGroundStatus();
-
-        //Movement Animaions
-        if(state.grounded)
+        if(playerCharacter != null)
         {
-            //print(state.grounded);
-            if(!isArms)
-            {
-                animator.SetBool("InAirJump", false);
-                
-                if(playerCharacter.isWalking)
-                {
-                    animator.SetBool("Walking", true);
-                }
-                else
-                {
-                    //print("Walk off");
-                    animator.SetBool("Walking", false);
-                }
+            var state = playerCharacter.GetState();
+            //Debug.Log(state.stance);
+            //var grounded = playerCharacter.GetGroundStatus();
 
-                if(state.stance is Stance.Crouch)
+            //Movement Animaions
+            if(state.grounded)
+            {
+                //print(state.grounded);
+                if(!isArms)
                 {
-                    animator.SetBool("Crouching", true);
-                    if(state.stance is Stance.Crouch && playerCharacter._requestedMovement.magnitude > 0)
+                    animator.SetBool("InAirJump", false);
+                    
+                    if(playerCharacter.isWalking)
                     {
                         animator.SetBool("Walking", true);
                     }
                     else
                     {
+                        //print("Walk off");
                         animator.SetBool("Walking", false);
                     }
+
+                    if(state.stance is Stance.Crouch)
+                    {
+                        animator.SetBool("Crouching", true);
+                        if(state.stance is Stance.Crouch && playerCharacter._requestedMovement.magnitude > 0)
+                        {
+                            animator.SetBool("Walking", true);
+                        }
+                        else
+                        {
+                            animator.SetBool("Walking", false);
+                        }
+                    }
+                    else
+                    {
+                        animator.SetBool("Crouching", false);
+                    }
+                }
+
+                if(playerCharacter.isSprinting)
+                {
+                    //print("Sprint Anim");
+                    animator.SetBool("Sprinting", true);
                 }
                 else
                 {
-                    animator.SetBool("Crouching", false);
+                    animator.SetBool("Sprinting", false);
                 }
-            }
-
-            if(playerCharacter.isSprinting)
-            {
-                //print("Sprint Anim");
-                animator.SetBool("Sprinting", true);
             }
             else
             {
                 animator.SetBool("Sprinting", false);
-            }
-        }
-        else
-        {
-            animator.SetBool("Sprinting", false);
-            if(!isArms)
-            {
-                animator.SetBool("Walking", false);
+                if(!isArms)
+                {
+                    animator.SetBool("Walking", false);
+                }
             }
         }
 

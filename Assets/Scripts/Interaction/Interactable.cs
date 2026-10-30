@@ -15,6 +15,7 @@ public class Interactable : MonoBehaviour
 
     [Header("Door Variables")]
     public bool isDoor;
+    //public bool isWeapon;
     public Animator animator;
     public string openDoorBoolName;
     //public string closeTriggerName;

@@ -9,6 +9,8 @@ TagManager:
   - Interactable
   - DoorInteractable
   - Enemy
+  - PlayerCharacter
+  - PlayerStepSFX
   layers:
   - Default
   - TransparentFX
