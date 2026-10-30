@@ -6,17 +6,13 @@ public class DoorEditor : Editor
     SlidingDoor slidingDoor;
 
     SerializedProperty m_isButtonDoor;
-    SerializedProperty m_collisionAdjustmentNeeded;
-    SerializedProperty m_collider;
-    SerializedProperty m_colliderSizeClosed;
-    SerializedProperty m_colliderSizeOpen;
-    SerializedProperty m_colliderCentreClosed;
-    SerializedProperty m_colliderCentreOpen;
+    SerializedProperty m_interactCollider;
     SerializedProperty m_isLargeDoor;
-    SerializedProperty m_doorMessage;
-    //SerializedProperty m_onDoorInteraction;
+    SerializedProperty m_doorOpenMessage;
+    SerializedProperty m_doorCloseMessage;
     SerializedProperty m_animator;
     SerializedProperty m_playerTag;
+    SerializedProperty m_enemyTag;
     SerializedProperty m_openCloseAnimBoolName;
     SerializedProperty m_isOpenOrClosed;
     SerializedProperty m_audioSource;
@@ -24,23 +20,21 @@ public class DoorEditor : Editor
     SerializedProperty m_openAudio;
     SerializedProperty m_closeAudio;
     SerializedProperty m_doorOpen;
+    SerializedProperty m_animLayer;
+    SerializedProperty m_animPlaying;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
     {
         slidingDoor = (SlidingDoor)target;
 
         m_isButtonDoor = serializedObject.FindProperty("isButtonDoor");
-        m_collisionAdjustmentNeeded = serializedObject.FindProperty("collisionAdjustmentNeeded");
-        m_collider= serializedObject.FindProperty("collider");
-        m_colliderSizeClosed= serializedObject.FindProperty("colliderSizeClosed");
-        m_colliderSizeOpen= serializedObject.FindProperty("colliderSizeOpen");
-        m_colliderCentreClosed= serializedObject.FindProperty("colliderCentreClosed");
-        m_colliderCentreOpen= serializedObject.FindProperty("colliderCentreOpen");
+        m_interactCollider= serializedObject.FindProperty("interactCollider");
         m_isLargeDoor = serializedObject.FindProperty("isLargeDoor");
-        m_doorMessage = serializedObject.FindProperty("doorMessage");
-        //m_onDoorInteraction = serializedObject.FindProperty("onDoorInteraction");
+        m_doorOpenMessage = serializedObject.FindProperty("doorOpenMessage");
+        m_doorCloseMessage = serializedObject.FindProperty("doorCloseMessage");
         m_animator = serializedObject.FindProperty("animator");
         m_playerTag = serializedObject.FindProperty("playerTag");
+        m_enemyTag = serializedObject.FindProperty("enemyTag");
         m_openCloseAnimBoolName = serializedObject.FindProperty("openCloseAnimBoolName");
         m_isOpenOrClosed = serializedObject.FindProperty("isOpenOrClosed");
         m_audioSource = serializedObject.FindProperty("audioSource");
@@ -48,6 +42,8 @@ public class DoorEditor : Editor
         m_openAudio = serializedObject.FindProperty("openAudio");
         m_closeAudio = serializedObject.FindProperty("closeAudio");
         m_doorOpen = serializedObject.FindProperty("doorOpen");
+        m_animLayer = serializedObject.FindProperty("animLayer");
+        m_animPlaying = serializedObject.FindProperty("animPlaying");
     }
 
     public override void OnInspectorGUI()
@@ -55,33 +51,20 @@ public class DoorEditor : Editor
         EditorGUI.BeginChangeCheck();
 
         EditorGUILayout.PropertyField(m_isButtonDoor);
+        EditorGUILayout.PropertyField(m_isLargeDoor);
+        EditorGUILayout.PropertyField(m_animator);
         
         if(m_isButtonDoor.boolValue)
         {
-            EditorGUILayout.PropertyField(m_doorMessage);
-            EditorGUILayout.PropertyField(m_collisionAdjustmentNeeded);
-            if(m_collisionAdjustmentNeeded.boolValue)
-            {
-                EditorGUILayout.PropertyField(m_collider);
-                EditorGUILayout.PropertyField(m_colliderSizeClosed);
-                EditorGUILayout.PropertyField(m_colliderSizeOpen);
-                EditorGUILayout.PropertyField(m_colliderCentreClosed);
-                EditorGUILayout.PropertyField(m_colliderCentreOpen);
-            }
+            EditorGUILayout.PropertyField(m_interactCollider);
+            EditorGUILayout.PropertyField(m_doorOpenMessage);
+            EditorGUILayout.PropertyField(m_doorCloseMessage);
         }
 
-        EditorGUILayout.PropertyField(m_isLargeDoor);
-
-        /*if(m_isLargeDoor.boolValue)
-        {
-            //EditorGUILayout.PropertyField(m_onDoorInteraction);
-        }*/
-
-        EditorGUILayout.PropertyField(m_animator);
-
-        if(!m_isLargeDoor.boolValue)
+        if(!m_isButtonDoor.boolValue)
         {
             EditorGUILayout.PropertyField(m_playerTag);
+            EditorGUILayout.PropertyField(m_enemyTag);
         }
         
         EditorGUILayout.PropertyField(m_openCloseAnimBoolName);
@@ -91,6 +74,8 @@ public class DoorEditor : Editor
         EditorGUILayout.PropertyField(m_openAudio);
         EditorGUILayout.PropertyField(m_closeAudio);
         EditorGUILayout.PropertyField(m_doorOpen);
+        EditorGUILayout.PropertyField(m_animLayer);
+        EditorGUILayout.PropertyField(m_animPlaying);
 
         if(EditorGUI.EndChangeCheck())
         {

@@ -14,8 +14,8 @@ public class FootStepPlayer : MonoBehaviour
     private void Start()
     {
         
-        
-        FootStepsSFX = FindAnyObjectByType<FootStepsSFX>();
+        if(FootStepsSFX == null)
+            FootStepsSFX = FindAnyObjectByType<FootStepsSFX>();
     }
     private void Update()
     {

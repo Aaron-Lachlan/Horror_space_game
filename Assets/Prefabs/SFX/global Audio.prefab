@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 2800000, guid: 9059e055aa673b3469a5c2896c0b8fb5, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6830855457562411693
 Transform:
   m_ObjectHideFlags: 0
@@ -30,6 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8987600624361075894}
+  - {fileID: 2640508809515038684}
   - {fileID: 4558566368096474478}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -81,13 +82,13 @@ MonoBehaviour:
   AmbAudioProfiles:
   - AmbTypes: 0
     AmbSound: {fileID: 8300000, guid: 0ffa261744b154143ab4004c9c8ca9d3, type: 3}
-    Volume: 0.5
+    Volume: 0.1
   - AmbTypes: 1
     AmbSound: {fileID: 8300000, guid: 97bd5a6677a6c5441b009d47eb6954f6, type: 3}
-    Volume: 0.5
+    Volume: 0.1
   - AmbTypes: 2
     AmbSound: {fileID: 8300000, guid: 004f4098045150e4ca9ddaba7b90ff90, type: 3}
-    Volume: 0.5
+    Volume: 0.1
   outputMixerGroup: {fileID: 24300002, guid: a4e4357887577234385a306f207e7d64, type: 2}
 --- !u!1 &4716749561075261287
 GameObject:
@@ -133,6 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d5100423bbf504598dcb166bd244b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FootStepsSFX
+  isPlayer: 1
+  isAlien: 0
   surfaceProfiles:
   - SurfaceType: 1
     footstepSounds:
@@ -156,9 +159,92 @@ MonoBehaviour:
     VolumeOfAll: 1
   - SurfaceType: 2
     footstepSounds:
-    - {fileID: 8300000, guid: c88b9231c0c0e3b4e9d520d78a1c7528, type: 3}
-    - {fileID: 8300000, guid: 18685c95b178913499c60c2c9cc303ec, type: 3}
-    - {fileID: 8300000, guid: 2a5525dfd3fa71f46bda5f941bbc00e7, type: 3}
-    - {fileID: 8300000, guid: cadcb625360b2f94f8f74a9397a318c7, type: 3}
+    - {fileID: 8300000, guid: 34c9cc77c65107840b99f2635197ca35, type: 3}
+    - {fileID: 8300000, guid: 054fa95fec53dd241a3b2a22ecadce65, type: 3}
+    - {fileID: 8300000, guid: 966db7b3e81bc6f43b3d611e93128873, type: 3}
+    - {fileID: 8300000, guid: 368b77af8ac9f3d40978136b017a1400, type: 3}
+    - {fileID: 8300000, guid: 4292695d62bea4343ac9f44af01fc57f, type: 3}
+    - {fileID: 8300000, guid: 91ec6cbfddde0bc4a9ed0ab059073688, type: 3}
+    - {fileID: 8300000, guid: b411f8e79c6c79d4ebe3b5861edb46a9, type: 3}
+    - {fileID: 8300000, guid: d0cd9dbb0ffcac940b04ead72edac154, type: 3}
+    VolumeOfAll: 0.6
+  AudioSource: {fileID: 0}
+--- !u!1 &6048652029886691408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2640508809515038684}
+  - component: {fileID: 7729021250394627872}
+  m_Layer: 0
+  m_Name: Footstep Sfx Alien
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2640508809515038684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048652029886691408}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6830855457562411693}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7729021250394627872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048652029886691408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23d5100423bbf504598dcb166bd244b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FootStepsSFX
+  isPlayer: 0
+  isAlien: 1
+  surfaceProfiles:
+  - SurfaceType: 1
+    footstepSounds:
+    - {fileID: 8300000, guid: cf4c809ffff8241418b4aeda383b41cd, type: 3}
+    - {fileID: 8300000, guid: f056644656c578e4d90907335b26de90, type: 3}
+    - {fileID: 8300000, guid: 5753ce5f4191f3a46986572c6829dab9, type: 3}
+    - {fileID: 8300000, guid: 36384505c0ccd8646bf703d9161ba3f6, type: 3}
+    VolumeOfAll: 1
+  - SurfaceType: 0
+    footstepSounds:
+    - {fileID: 8300000, guid: dad3255ac74072d44b0d6d755c56335b, type: 3}
+    - {fileID: 8300000, guid: f47cf0ccf0fac7242a6b741ce9ca5bd7, type: 3}
+    - {fileID: 8300000, guid: 7c85ff30dce88e845870c1f9b433e42d, type: 3}
+    - {fileID: 8300000, guid: ff5a98008fead084ea3b5f9af60c0aed, type: 3}
+    - {fileID: 8300000, guid: 017d9570c66cbe941ac40c2593f61b5d, type: 3}
+    - {fileID: 8300000, guid: c7566c7614aa0c246b6265e1bbf444a9, type: 3}
+    - {fileID: 8300000, guid: 7d6c509eaa3a14f488b6423721b75c8e, type: 3}
+    - {fileID: 8300000, guid: 7dfcb75d5604d0b4d97ce13e67b21f96, type: 3}
+    - {fileID: 8300000, guid: a2d53cd1c07448a45b1aa9e25a063479, type: 3}
+    - {fileID: 8300000, guid: c68e286156ec73d4ebd8c3018728e187, type: 3}
+    VolumeOfAll: 1
+  - SurfaceType: 2
+    footstepSounds:
+    - {fileID: 8300000, guid: 34c9cc77c65107840b99f2635197ca35, type: 3}
+    - {fileID: 8300000, guid: 054fa95fec53dd241a3b2a22ecadce65, type: 3}
+    - {fileID: 8300000, guid: 966db7b3e81bc6f43b3d611e93128873, type: 3}
+    - {fileID: 8300000, guid: 368b77af8ac9f3d40978136b017a1400, type: 3}
+    - {fileID: 8300000, guid: 4292695d62bea4343ac9f44af01fc57f, type: 3}
+    - {fileID: 8300000, guid: 91ec6cbfddde0bc4a9ed0ab059073688, type: 3}
+    - {fileID: 8300000, guid: b411f8e79c6c79d4ebe3b5861edb46a9, type: 3}
+    - {fileID: 8300000, guid: d0cd9dbb0ffcac940b04ead72edac154, type: 3}
     VolumeOfAll: 0.6
   AudioSource: {fileID: 0}
