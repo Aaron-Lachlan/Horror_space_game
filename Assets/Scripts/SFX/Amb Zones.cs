@@ -13,7 +13,7 @@ public class AmbZones : Amb
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerCharacter"))
         {
             
             AmbManager.ChangeAmbRequest(currentSettings);

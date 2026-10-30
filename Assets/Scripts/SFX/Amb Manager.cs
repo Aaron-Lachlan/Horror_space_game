@@ -40,6 +40,7 @@ public class AmbManager : Amb
     public void ChangeAmbRequest(AmbTypes ChangeAmbTo)
     {
         AmbAudioProfile targetProfile = null;
+        
 
         foreach (var ambProfile in AmbAudioProfiles)
         {
