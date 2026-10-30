@@ -152,7 +152,7 @@ public class AlienAI : MonoBehaviour
     NavMeshPath tempPath;
     Collider playerCollider;
     AlienState state = AlienState.Patrol;
-    bool canSeePlayer;
+    public bool canSeePlayer;
     Vector3 lastKnownPlayerPos;
     bool hasLastKnownPos;
     Vector3 investigatePos;
@@ -224,6 +224,7 @@ public class AlienAI : MonoBehaviour
 
         if (canSeePlayer)
         {
+            print("Player sighted");
             lastKnownPlayerPos = player.position;
             hasLastKnownPos = true;
             timeSinceSeen = 0f;

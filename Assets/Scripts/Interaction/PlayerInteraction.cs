@@ -119,13 +119,13 @@ public class PlayerInteraction : MonoBehaviour
         //currentInteractableDoor.EnableOutLine();
         if(!newInteractableDoor.doorOpen)
         {
-            print("Set open text");
+            //print("Set open text");
             HUDHelpText.instance.EnableInteractionText(currentInteractableDoor.doorOpenMessage);
         }
 
         if(newInteractableDoor.doorOpen)
         {
-            print("Set close text");
+            //print("Set close text");
             HUDHelpText.instance.EnableInteractionText(currentInteractableDoor.doorCloseMessage);
         }
     }
