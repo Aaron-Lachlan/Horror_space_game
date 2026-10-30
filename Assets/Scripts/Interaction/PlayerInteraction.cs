@@ -8,6 +8,7 @@ public class PlayerInteraction : MonoBehaviour
     public float playerReach;
     Interactable currentInteractable;
     SlidingDoor currentInteractableDoor;
+    Weapon weapon;
     //Interactable currentInteractable;
 
     // Update is called once per frame
@@ -105,7 +106,7 @@ public class PlayerInteraction : MonoBehaviour
         //print("Enable interact");
         currentInteractable = newInteractable;
 
-        if(!currentInteractable.isDoor)
+        if(!newInteractable.isDoor)
         {
             currentInteractable.EnableOutLine();
             HUDHelpText.instance.EnableInteractionText(currentInteractable.message);

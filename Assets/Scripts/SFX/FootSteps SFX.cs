@@ -34,10 +34,16 @@ public class FootStepsSFX : MaterialType
         if(AudioSource == null)
         {
             print("Feet not found. Linking...");
-            if(isPlayer)
+            if(isPlayer && !isAlien)
+            {
                 AudioSource = GameObject.Find("Feet").GetComponent<AudioSource>();
-            if(isAlien)
+            }
+
+            if(isAlien && !isPlayer)
+            {
                 AudioSource = GameObject.Find("FeetAlien").GetComponent<AudioSource>();
+            }
+
             if(AudioSource != null)
             {
                 print("Linked...");

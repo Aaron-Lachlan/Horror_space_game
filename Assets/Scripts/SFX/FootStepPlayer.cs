@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class FootStepPlayer : MonoBehaviour
 {
+    [SerializeField] bool isPlayer;
+    [SerializeField] bool isAlien;
     [SerializeField] FootStepsSFX FootStepsSFX;
 
 
@@ -15,7 +17,13 @@ public class FootStepPlayer : MonoBehaviour
     {
         
         if(FootStepsSFX == null)
-            FootStepsSFX = FindAnyObjectByType<FootStepsSFX>();
+        {
+            if(isPlayer)
+                FootStepsSFX = GameObject.FindWithTag("PlayerStepSFX").GetComponent<FootStepsSFX>();
+            
+            if(isAlien)
+                FootStepsSFX = GameObject.FindWithTag("AlienStepSFX").GetComponent<FootStepsSFX>();
+        }
     }
     private void Update()
     {

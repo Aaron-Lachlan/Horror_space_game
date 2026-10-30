@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b89afce0761e35840ad553096ae430cc, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 4ec066cad2678fa4ab2dbf1c2c914f7c, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5917718819133810537, guid: 4ec066cad2678fa4ab2dbf1c2c914f7c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -80,9 +84,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3982730588811587217, guid: 4ec066cad2678fa4ab2dbf1c2c914f7c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1774471902463285702}
+    - targetCorrespondingSourceObject: {fileID: 3982730588811587217, guid: 4ec066cad2678fa4ab2dbf1c2c914f7c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5405414973887698225}
     - targetCorrespondingSourceObject: {fileID: -5393966845030512887, guid: 4ec066cad2678fa4ab2dbf1c2c914f7c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5924737680601889270}
+    - targetCorrespondingSourceObject: {fileID: -5393966845030512887, guid: 4ec066cad2678fa4ab2dbf1c2c914f7c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7926101077662958758}
   m_SourcePrefab: {fileID: 100100000, guid: 4ec066cad2678fa4ab2dbf1c2c914f7c, type: 3}
 --- !u!1 &325253372133894690 stripped
 GameObject:
@@ -110,6 +120,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15, y: 3, z: 1.5}
   m_Center: {x: 0, y: 0.3, z: -0.75}
+--- !u!208 &7926101077662958758
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325253372133894690}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.05, y: 1.5, z: 0.3}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.3, z: -0.75}
+  m_TimeToStationary: 0.1
 --- !u!1 &496187410309399482 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3982730588811587217, guid: 4ec066cad2678fa4ab2dbf1c2c914f7c, type: 3}
@@ -136,6 +162,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15, y: 3, z: 1.5}
   m_Center: {x: 0, y: 0.3, z: 0.75}
+--- !u!208 &5405414973887698225
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496187410309399482}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.05, y: 1.5, z: 0.3}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.3, z: 0.75}
+  m_TimeToStationary: 0.1
 --- !u!1 &4424265867089154170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4ec066cad2678fa4ab2dbf1c2c914f7c, type: 3}
@@ -154,16 +196,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlidingDoor
   isButtonDoor: 0
-  collisionAdjustmentNeeded: 0
-  collider: {fileID: 0}
-  colliderSizeClosed: {x: 0, y: 0, z: 0}
-  colliderSizeOpen: {x: 0, y: 0, z: 0}
-  colliderCentreClosed: {x: 0, y: 0, z: 0}
-  colliderCentreOpen: {x: 0, y: 0, z: 0}
+  interactCollider: {fileID: 0}
   isLargeDoor: 0
-  doorMessage: 
+  doorOpenMessage: 
+  doorCloseMessage: 
   animator: {fileID: 6975471252872990906}
   playerTag: Player
+  enemyTag: Enemy
   openCloseAnimBoolName: DoorOpen
   isOpenOrClosed: 
   audioSource: {fileID: 1900724499472488205}
@@ -173,6 +212,7 @@ MonoBehaviour:
   alarmAudio: {fileID: 0}
   doorOpen: 0
   animLayer: 0
+  animPlaying: 0
 --- !u!82 &1900724499472488205
 AudioSource:
   m_ObjectHideFlags: 0
@@ -289,7 +329,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 3, z: 3}
+  m_Size: {x: 4, y: 3, z: 3.5}
   m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!95 &6975471252872990906 stripped
 Animator:
