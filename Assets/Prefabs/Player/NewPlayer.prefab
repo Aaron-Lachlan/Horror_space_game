@@ -1750,7 +1750,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   globals: {fileID: 0}
-  globalsObject: {fileID: 0}
   playerCharacter: {fileID: 3997075631619518728}
   playerCamera: {fileID: 816018102394231935}
   cameraSpring: {fileID: 8596047445369856267}
