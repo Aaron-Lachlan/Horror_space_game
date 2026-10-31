@@ -3,10 +3,14 @@ using UnityEngine;
 
 public class WeaponAnimationHandler : MonoBehaviour
 {
-    [SerializeField] Animator animator;
+    public Animator weaponAnimator;
     //[SerializeField] PlayerController playerController;
     [SerializeField] PlayerCharacter playerCharacter;
     [SerializeField] bool isArms;
+
+    [Header ("Audio References")]
+    [SerializeField] AudioSource animationAudioSource;
+    [SerializeField] AudioClip[] audioResources;
 
     void Awake()
     {
@@ -33,52 +37,52 @@ public class WeaponAnimationHandler : MonoBehaviour
                 //print(state.grounded);
                 if(!isArms)
                 {
-                    animator.SetBool("InAirJump", false);
+                    weaponAnimator.SetBool("InAirJump", false);
                     
                     if(playerCharacter.isWalking)
                     {
-                        animator.SetBool("Walking", true);
+                        weaponAnimator.SetBool("Walking", true);
                     }
                     else
                     {
                         //print("Walk off");
-                        animator.SetBool("Walking", false);
+                        weaponAnimator.SetBool("Walking", false);
                     }
 
                     if(state.stance is Stance.Crouch)
                     {
-                        animator.SetBool("Crouching", true);
+                        weaponAnimator.SetBool("Crouching", true);
                         if(state.stance is Stance.Crouch && playerCharacter._requestedMovement.magnitude > 0)
                         {
-                            animator.SetBool("Walking", true);
+                            weaponAnimator.SetBool("Walking", true);
                         }
                         else
                         {
-                            animator.SetBool("Walking", false);
+                            weaponAnimator.SetBool("Walking", false);
                         }
                     }
                     else
                     {
-                        animator.SetBool("Crouching", false);
+                        weaponAnimator.SetBool("Crouching", false);
                     }
                 }
 
                 if(playerCharacter.isSprinting)
                 {
                     //print("Sprint Anim");
-                    animator.SetBool("Sprinting", true);
+                    weaponAnimator.SetBool("Sprinting", true);
                 }
                 else
                 {
-                    animator.SetBool("Sprinting", false);
+                    weaponAnimator.SetBool("Sprinting", false);
                 }
             }
             else
             {
-                animator.SetBool("Sprinting", false);
+                weaponAnimator.SetBool("Sprinting", false);
                 if(!isArms)
                 {
-                    animator.SetBool("Walking", false);
+                    weaponAnimator.SetBool("Walking", false);
                 }
             }
         }
@@ -89,5 +93,10 @@ public class WeaponAnimationHandler : MonoBehaviour
             animator.SetBool("Walking", false);
             animator.SetBool("Sprinting", false);
         }*/
+    }
+
+    public void PlaySoundEvent(int index)
+    {
+        this.animationAudioSource.PlayOneShot(this.audioResources[index]);
     }
 }

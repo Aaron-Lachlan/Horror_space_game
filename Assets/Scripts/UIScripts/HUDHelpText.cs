@@ -13,6 +13,7 @@ public class HUDHelpText : MonoBehaviour
     public TextMeshProUGUI helpText;
     public TextMeshProUGUI interactionText;
     [SerializeField] GameObject helpTextObject;
+    [SerializeField] GameObject interactionTextObject;
     //[SerializeField] GameObject interactTextObject;
     //public float fadeTime;
     //[Tooltip("Higher = Faster")]
@@ -69,6 +70,7 @@ public class HUDHelpText : MonoBehaviour
 
     public void EnableInteractionText(string text)
     {
+        print("Help Text Displayed");
         //!When pause system implemented. Reenable this. This checks if a menu is being displayed currently before enabling interaction text (Probably redundant but I added it for a reason I think)
         /*if(!pauseManager.isDocumentScreen)
         {
@@ -76,12 +78,12 @@ public class HUDHelpText : MonoBehaviour
             interactionText.gameObject.SetActive(true);
         }*/
         interactionText.text = text;
-        interactionText.gameObject.SetActive(true);
+        interactionTextObject.SetActive(true);
     }
 
     public void DisableInteractionText()
     {
         interactionText.text = string.Empty;
-        interactionText.gameObject.SetActive(false);
+        interactionTextObject.SetActive(false);
     }
 }

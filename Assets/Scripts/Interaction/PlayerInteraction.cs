@@ -4,22 +4,29 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    public static PlayerInteraction instance;
     [SerializeField] Camera playerCamera;
     public float playerReach;
     Interactable currentInteractable;
     SlidingDoor currentInteractableDoor;
-    Weapon weapon;
+
+    public bool playerOnWeapon;
     //Interactable currentInteractable;
 
-    // Update is called once per frame
+    void Awake()
+    {
+        instance = this;
+    }
     void Update()
     {
-        CheckInteractionRayCast();
+        if(!playerOnWeapon)
+            CheckInteractionRayCast();
         //CheckInteractionRadius();
         if(Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
         {
             currentInteractable.Interact();
         }
+        //print(currentInteractableDoor);
         if(Input.GetKeyDown(KeyCode.E) && currentInteractableDoor != null)
         {
             currentInteractableDoor.DoorInteract();
@@ -53,19 +60,7 @@ public class PlayerInteraction : MonoBehaviour
                     DisableCurrentInteractable();
                 }
             }
-            else //If not interactable
-            {
-                DisableCurrentInteractable();
-            }
-        }
-        else //If not in reach
-        {
-            DisableCurrentInteractable();
-        }
-
-        if(Physics.Raycast(ray, out hit, playerReach))
-        {
-            if(hit.collider.tag == "DoorInteractable")
+            else if(hit.collider.tag == "DoorInteractable")
             {
                 SlidingDoor newInteractableDoor = hit.collider.GetComponent<SlidingDoor>();
 
@@ -85,14 +80,15 @@ public class PlayerInteraction : MonoBehaviour
             }
             else //If not interactable
             {
+                DisableCurrentInteractable();
                 DisableCurrentInteractableDoor();
             }
         }
         else //If not in reach
         {
+            DisableCurrentInteractable();
             DisableCurrentInteractableDoor();
         }
-
     }
 
     //Unknown
@@ -153,9 +149,6 @@ public class PlayerInteraction : MonoBehaviour
         {
             currentInteractable.DisableOutline();
         }*/
-        if(currentInteractableDoor)
-        {
-            currentInteractableDoor = null;
-        }
+        currentInteractableDoor = null;
     }
 }

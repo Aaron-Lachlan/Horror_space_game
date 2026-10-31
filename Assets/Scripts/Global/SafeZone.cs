@@ -28,7 +28,7 @@ public class SafeZone : MonoBehaviour
             //print("Player in safe zone");
             foreach (var alien in alienAI)
             {
-                alien.canSeePlayer = false;
+                alien.playerIsSafe = true;
                 //print("Player Hidden");
             }
         }

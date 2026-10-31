@@ -866,7 +866,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1682549118}
-  m_VersionIndex: 1709
+  m_VersionIndex: 1758
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4524,7 +4524,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1755163427}
-  m_VersionIndex: 624
+  m_VersionIndex: 673
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -7558,6 +7558,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: PlayerStepSFX
       objectReference: {fileID: 0}
+    - target: {fileID: 8423362517045931713, guid: a0254e90c2388c64fae03c9fa67baba6, type: 3}
+      propertyPath: interactionTextObject
+      value: 
+      objectReference: {fileID: 1806177701}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8704,7 +8708,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 313676125}
-  m_VersionIndex: 1107
+  m_VersionIndex: 1156
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -10988,7 +10992,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1274441717}
-  m_VersionIndex: 1234
+  m_VersionIndex: 1283
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -31348,7 +31352,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1897845492}
-  m_VersionIndex: 883
+  m_VersionIndex: 932
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -36204,7 +36208,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 769258335}
-  m_VersionIndex: 4305
+  m_VersionIndex: 4354
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -37599,6 +37603,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8569716438993557806, guid: ae50e0385e73bda44adfb657035c4af2, type: 3}
   m_PrefabInstance: {fileID: 1801828038}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1806177701 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7716788002020555676, guid: a0254e90c2388c64fae03c9fa67baba6, type: 3}
+  m_PrefabInstance: {fileID: 328713402}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1849082080
 GameObject:

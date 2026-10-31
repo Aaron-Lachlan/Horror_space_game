@@ -153,6 +153,7 @@ public class AlienAI : MonoBehaviour
     Collider playerCollider;
     AlienState state = AlienState.Patrol;
     public bool canSeePlayer;
+    public bool playerIsSafe;
     Vector3 lastKnownPlayerPos;
     bool hasLastKnownPos;
     Vector3 investigatePos;
@@ -222,7 +223,7 @@ public class AlienAI : MonoBehaviour
             sightTimer = sightCheckInterval;
         }
 
-        if (canSeePlayer)
+        if (canSeePlayer && !playerIsSafe)
         {
             print("Player sighted");
             lastKnownPlayerPos = player.position;
