@@ -1764,10 +1764,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorSmall
       objectReference: {fileID: 0}
-    - target: {fileID: 8179383011487060578, guid: 6bd51e5951c36c244a6e27c961d05f3c, type: 3}
-      propertyPath: playerTag
-      value: PlayerCharacter
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
