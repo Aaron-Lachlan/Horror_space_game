@@ -61,37 +61,22 @@ public class SlidingDoor : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == playerTag && !isButtonDoor)
+        if (other.tag == playerTag || other.tag == enemyTag && !isButtonDoor)
         {
             animator.SetBool(openCloseAnimBoolName, true);
             audioSource.clip = openAudio;
             audioSource.Play();
         }
-
-        /*if (other.tag == enemyTag && !isButtonDoor)
-        {
-            print("Enemy Open Door");
-            animator.SetBool(openCloseAnimBoolName, true);
-            audioSource.clip = openAudio;
-            audioSource.Play();
-        }*/
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == playerTag && !isButtonDoor)
+        if (other.tag == playerTag || other.tag == enemyTag && !isButtonDoor)
         {
             animator.SetBool(openCloseAnimBoolName, false);
             audioSource.clip = closeAudio;
             audioSource.Play();
         }
-
-        /*if (other.tag == enemyTag && !isButtonDoor)
-        {
-            animator.SetBool(openCloseAnimBoolName, false);
-            audioSource.clip = closeAudio;
-            audioSource.Play();
-        }*/
     }
 
     public void DoorInteract()

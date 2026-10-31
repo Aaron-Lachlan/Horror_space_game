@@ -4,23 +4,29 @@ using UnityEngine;
 public class WeaponManagement : MonoBehaviour
 {
     [SerializeField] bool startUnarmed;
+    public bool weaponOneEquipped;
+    public bool weaponTwoEquipped;
+    public bool playerIsUnarmed;
 
     [Header ("Weapon Slots")]
-    public GameObject primaryWeapon;
-    public GameObject secondaryWeapon;
+    public GameObject weaponOne;
+    public GameObject weaponTwo;
 
-    [Header ("Weapons")]
+    [Header ("Unarmed")]
     public GameObject unarmed;
 
-    [Header ("FP Container")]
+    [Header ("FP Containers")]
     public GameObject FPHolder;
+    public GameObject GunContainer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if(startUnarmed)
         {
-            GameObject FPArms = Instantiate(unarmed, FPHolder.transform.position, unarmed.transform.rotation);
+            playerIsUnarmed = true;
+            GameObject FPArms = Instantiate(unarmed, FPHolder.transform.position, FPHolder.transform.rotation);
             FPArms.transform.SetParent(FPHolder.transform, true);
+            startUnarmed = false;
         }
     }
 }

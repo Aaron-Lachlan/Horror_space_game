@@ -6,6 +6,9 @@ using TMPro;
 
 public class DeathPanelController : MonoBehaviour
 {
+    [Header ("Global Reference")]
+    [SerializeField] Globals globals;
+
     [Header("Trigger")]
     [Tooltip("Set this true (from code or the Inspector) to show the death panel.")]
     public bool isDead = false;
@@ -72,11 +75,21 @@ public class DeathPanelController : MonoBehaviour
 
     private void Update()
     {
+        if(globals == null)
+        {
+            globals = GameObject.Find("GlobalObject").GetComponent<Globals>();
+        }
+
         // Watch the bool for changes so it works from the Inspector or any script.
         if (isDead != lastState)
         {
             lastState = isDead;
-            if (isDead) ShowPanel();
+            if (isDead)
+            {
+                globals.enableMovement = false;
+                Cursor.lockState = CursorLockMode.None;
+                ShowPanel();
+            }
             else HidePanel();
         }
     }

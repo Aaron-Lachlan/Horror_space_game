@@ -566,6 +566,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e5127aa255fac4f9877128179095cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAnimationHandler
-  animator: {fileID: 3414820020730681781}
+  weaponAnimator: {fileID: 3414820020730681781}
   playerCharacter: {fileID: 0}
   isArms: 1

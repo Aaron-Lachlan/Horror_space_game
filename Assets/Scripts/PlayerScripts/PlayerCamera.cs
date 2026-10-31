@@ -9,6 +9,8 @@ public struct CameraInput
 public class PlayerCamera : MonoBehaviour
 {
     [SerializeField] float lookSensitivity = 0.1f;
+    [SerializeField] float maxLookUp = 89f;
+    [SerializeField] float maxLookDown;
 
     Vector3 _eulerAngles;
 
@@ -21,7 +23,7 @@ public class PlayerCamera : MonoBehaviour
     public void UpdateRotation(CameraInput input)
     {
         _eulerAngles += new Vector3(-input.look.y, input.look.x) * lookSensitivity;
-        _eulerAngles.x = Mathf.Clamp(_eulerAngles.x, -89f, 89f);
+        _eulerAngles.x = Mathf.Clamp(_eulerAngles.x, -maxLookUp, -maxLookDown);
         transform.eulerAngles = _eulerAngles;
     }
 

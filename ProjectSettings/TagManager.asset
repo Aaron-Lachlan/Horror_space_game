@@ -11,6 +11,8 @@ TagManager:
   - Enemy
   - PlayerCharacter
   - PlayerStepSFX
+  - DroppedWeapon
+  - Door
   layers:
   - Default
   - TransparentFX

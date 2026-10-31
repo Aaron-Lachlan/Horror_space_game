@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6083052904218623661}
+  - component: {fileID: 3401969083114097553}
   m_Layer: 6
   m_Name: GunContainer
   m_TagString: Untagged
@@ -31,6 +32,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1270318253737871642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3401969083114097553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435841183572213409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4342b062180f30747a861104f6a87c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponSway
+  smooth: 6
+  mouseSwayMultiplierUpDown: 0.1
+  mouseSwayMultiplierLeftRight: 0.05
+  mouseSwayRotation: 0.2
+  keyboardSwayLeftRight: 0.05
+  keyboardMultiplierFowardBack: 0.05
+  keyboardSwayRotation: 5
+  playerInputHandler: {fileID: 0}
+  debugMouse: 0
 --- !u!1 &1181121043371809313
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +327,7 @@ MonoBehaviour:
   isPlayer: 1
   isAlien: 0
   FootStepsSFX: {fileID: 0}
-  TimeTillNextStep: 2.5
+  TimeTillNextStep: 2.25
   rayLength: 0.5
 --- !u!1 &2722098313269126981
 GameObject:
@@ -382,7 +404,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 6143
+    m_Bits: 6079
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -735,6 +757,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCamera
   lookSensitivity: 0.1
+  maxLookUp: 89
+  maxLookDown: -89
 --- !u!1 &3822893135634082218
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,7 +832,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 2112
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1757,8 +1781,8 @@ MonoBehaviour:
   cameraLean: {fileID: 490177328893791724}
   playerFlashlight: {fileID: 7900504028649510866}
   flashlightToggle: 1
-  flashlightOnClip: {fileID: 0}
-  flashlightOffClip: {fileID: 0}
+  flashlightOnClip: {fileID: 8300000, guid: c49b69ac06fccd149b16566a56c12686, type: 3}
+  flashlightOffClip: {fileID: 8300000, guid: 4cde1449b1571724c9a72ce4a0e25f4c, type: 3}
   flashlightAudioSource: {fileID: 6407868523735762602}
 --- !u!114 &9101706915268578588
 MonoBehaviour:
@@ -1774,3 +1798,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
   playerCamera: {fileID: 7789818195768200745}
   playerReach: 3
+  playerOnWeapon: 0
