@@ -13,6 +13,8 @@ TagManager:
   - PlayerStepSFX
   - DroppedWeapon
   - Door
+  - AmbienceVolume
+  - AlienStepSFX
   layers:
   - Default
   - TransparentFX

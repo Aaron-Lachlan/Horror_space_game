@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 4010213673810988253}
   m_Layer: 3
   m_Name: StalkerAlienAI
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,6 +233,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   randomPatrolOrder: 1
   patrolRadius: 10
   patrolWaitMin: 1
@@ -265,6 +269,7 @@ MonoBehaviour:
   audioPitchVariation: 0.08
   alwaysShowGizmos: 0
   canSeePlayer: 0
+  playerIsSafe: 0
 --- !u!23 &3392780467839052070
 MeshRenderer:
   m_ObjectHideFlags: 0

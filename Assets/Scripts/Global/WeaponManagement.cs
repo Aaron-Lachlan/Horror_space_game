@@ -18,14 +18,20 @@ public class WeaponManagement : MonoBehaviour
     [Header ("FP Containers")]
     public GameObject FPHolder;
     public GameObject GunContainer;
+
+    PlayerInteraction playerInteraction;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
+        playerInteraction = GameObject.Find("NewPlayer").GetComponent<PlayerInteraction>();
+        FPHolder = GameObject.Find("FPHolder");
+        GunContainer = GameObject.Find("GunContainer");
         if(startUnarmed)
         {
             playerIsUnarmed = true;
             GameObject FPArms = Instantiate(unarmed, FPHolder.transform.position, FPHolder.transform.rotation);
             FPArms.transform.SetParent(FPHolder.transform, true);
+            playerInteraction.playerFPAnimator = GameObject.Find("FPArms(Clone)").GetComponent<Animator>();
             startUnarmed = false;
         }
     }

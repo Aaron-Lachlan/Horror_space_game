@@ -21,6 +21,7 @@ public class SlidingDoor : MonoBehaviour
 
     [Space]
     public Animator animator;
+    public Animator playerFPAnimator;
     public string playerTag;
     public string enemyTag;
     public string openCloseAnimBoolName;

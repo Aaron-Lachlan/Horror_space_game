@@ -177,6 +177,7 @@ public class AlienAI : MonoBehaviour
     // ---------------------------------------------------------------------
     void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("PlayerCharacter").GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
         agent.updatePosition = true;
         agent.updateRotation = true;
@@ -202,12 +203,13 @@ public class AlienAI : MonoBehaviour
 
         lastStepPos = transform.position;
         ScheduleNextSearchSound();
-    }
-
-    void Start()
-    {
         EnterState(AlienState.Patrol, AlienState.Patrol);
     }
+
+    /*void Start()
+    {
+        EnterState(AlienState.Patrol, AlienState.Patrol);
+    }*/
 
     // ---------------------------------------------------------------------
     //  MAIN LOOP
