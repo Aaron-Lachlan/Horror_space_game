@@ -14,12 +14,12 @@ public class AmbManager : Amb
     
     
 
-    [SerializeField] private AmbAudioProfile[] AmbAudioProfiles;
+    public AmbAudioProfile[] AmbAudioProfiles;
     public AudioMixerGroup outputMixerGroup;
 
 
 
-    AudioSource ActiveAS;
+    public AudioSource ActiveAS;
 
     private List<AudioSource> OldAudioSourcesList = new List<AudioSource>();
     private Coroutine FadeCoro;
@@ -85,6 +85,9 @@ public class AmbManager : Amb
             ActiveAS.volume = 0f;
             ActiveAS.outputAudioMixerGroup = outputMixerGroup;
             ActiveAS.spatialBlend = 0f;
+            /*ActiveAS.rolloffMode = AudioRolloffMode.Linear;
+            ActiveAS.minDistance = 0.5f;
+            ActiveAS.maxDistance = 0.5f;*/
             ActiveAS.Play();
         }
 

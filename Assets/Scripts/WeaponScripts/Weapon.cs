@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
     HUDHelpText hudHelptext;
     WeaponManagement weaponManagement;
     WeaponAnimationHandler weaponAnimationHandler;
+    PlayerInteraction playerInteraction;
 
     [Header ("Bools")]
     public bool isDropped;
@@ -45,6 +46,7 @@ public class Weapon : MonoBehaviour
 
     void Awake()
     {
+        playerInteraction = GameObject.Find("NewPlayer").GetComponent<PlayerInteraction>();
         if(weaponManagement == null)
         {
             weaponManagement = GameObject.Find("WeaponManagement").GetComponent<WeaponManagement>();
@@ -152,5 +154,10 @@ public class Weapon : MonoBehaviour
         weaponManagement.playerIsUnarmed = false;
         print("Weapon Picked Up");
         Destroy(this.gameObject);
+    }
+
+    public void SwitchWeapon()
+    {
+        print("Switch Weapon Here");
     }
 }

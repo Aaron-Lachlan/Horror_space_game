@@ -201,7 +201,7 @@ MonoBehaviour:
   doorOpenMessage: 
   doorCloseMessage: 
   animator: {fileID: 6975471252872990906}
-  playerTag: Player
+  playerTag: PlayerCharacter
   enemyTag: Enemy
   openCloseAnimBoolName: DoorOpen
   isOpenOrClosed: 

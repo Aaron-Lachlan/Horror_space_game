@@ -6,6 +6,7 @@ public class PlayerInteraction : MonoBehaviour
 {
     public static PlayerInteraction instance;
     [SerializeField] Camera playerCamera;
+    public Animator playerFPAnimator;
     public float playerReach;
     Interactable currentInteractable;
     SlidingDoor currentInteractableDoor;
@@ -29,6 +30,8 @@ public class PlayerInteraction : MonoBehaviour
         //print(currentInteractableDoor);
         if(Input.GetKeyDown(KeyCode.E) && currentInteractableDoor != null)
         {
+            //Change "GrabItem" to "PressButton" when animation is available
+            playerFPAnimator.SetTrigger("GrabItem");
             currentInteractableDoor.DoorInteract();
         }
     }
