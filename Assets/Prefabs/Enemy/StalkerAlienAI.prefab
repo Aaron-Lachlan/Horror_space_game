@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 3392780467839052070}
   - component: {fileID: 1947490788102359612}
   - component: {fileID: 4010213673810988253}
+  - component: {fileID: 5362969172523229717}
   m_Layer: 3
   m_Name: StalkerAlienAI
   m_TagString: Enemy
@@ -372,16 +373,20 @@ MonoBehaviour:
   runStepDistance: 2.2
   attackSounds: []
   attackVolume: 1
-  spottedSounds: []
+  spottedSounds:
+  - {fileID: 8300000, guid: 99b8e430534b3f14f834835d50587da2, type: 3}
   spottedVolume: 1
   spottedCooldown: 8
-  searchSounds: []
+  searchSounds:
+  - {fileID: 8300000, guid: 104db56a82c023847a5d1489450ed54a, type: 3}
+  - {fileID: 8300000, guid: bd91cf8082fb5d443a0edab923a5aa72, type: 3}
+  - {fileID: 8300000, guid: 735885ee773c0f64a81cb7165d1c8839, type: 3}
   searchVolume: 0.9
   searchSoundIntervalMin: 4
   searchSoundIntervalMax: 10
   searchSoundsWhilePatrolling: 1
-  voiceSource: {fileID: 0}
-  footstepSource: {fileID: 0}
+  voiceSource: {fileID: 5362969172523229717}
+  footstepSource: {fileID: 1524889268820372611}
   audioPitchVariation: 0.08
   alwaysShowGizmos: 0
   canSeePlayer: 0
@@ -480,6 +485,103 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!82 &5362969172523229717
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3281548781864968408}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8527343003821309173
 GameObject:
   m_ObjectHideFlags: 0
