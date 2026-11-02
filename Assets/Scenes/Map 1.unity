@@ -1438,7 +1438,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1682549118}
-  m_VersionIndex: 3487
+  m_VersionIndex: 3578
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4932,7 +4932,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1755163427}
-  m_VersionIndex: 1982
+  m_VersionIndex: 2045
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6480,6 +6480,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7221755909691532040, guid: a0254e90c2388c64fae03c9fa67baba6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7961845409100721672, guid: a0254e90c2388c64fae03c9fa67baba6, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7630,7 +7634,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 313676125}
-  m_VersionIndex: 2031
+  m_VersionIndex: 2094
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -11324,7 +11328,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1274441717}
-  m_VersionIndex: 2907
+  m_VersionIndex: 2998
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -12709,7 +12713,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 861080400}
-  m_VersionIndex: 793
+  m_VersionIndex: 884
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -27080,7 +27084,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1897845492}
-  m_VersionIndex: 1737
+  m_VersionIndex: 1800
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -30006,7 +30010,7 @@ PrefabInstance:
     - target: {fileID: 4686793441904561651, guid: a309e5f8d7f920948b99cc374d5bebaf, type: 3}
       propertyPath: deathPanelController
       value: 
-      objectReference: {fileID: 1407827032}
+      objectReference: {fileID: 0}
     - target: {fileID: 9102056580547664420, guid: a309e5f8d7f920948b99cc374d5bebaf, type: 3}
       propertyPath: m_Name
       value: NewPlayer
@@ -44172,7 +44176,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 769258335}
-  m_VersionIndex: 5173
+  m_VersionIndex: 5236
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -44562,17 +44566,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1597475337}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1407827032 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5337104234629977873, guid: a0254e90c2388c64fae03c9fa67baba6, type: 3}
-  m_PrefabInstance: {fileID: 328713402}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7961be04cc96fa64d90dd105327b6b12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DeathPanelController
 --- !u!1 &1430512092
 GameObject:
   m_ObjectHideFlags: 0
