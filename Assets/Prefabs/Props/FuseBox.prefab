@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6235519288794664872}
   - component: {fileID: 6912823103763816405}
   m_Layer: 0
-  m_Name: Collider
+  m_Name: FuseBoxTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
