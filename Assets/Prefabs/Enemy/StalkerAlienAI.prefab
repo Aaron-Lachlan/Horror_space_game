@@ -371,7 +371,10 @@ MonoBehaviour:
   distanceBasedFootsteps: 1
   walkStepDistance: 1.4
   runStepDistance: 2.2
-  attackSounds: []
+  attackSounds:
+  - {fileID: 8300000, guid: fba13b27e90ea4e4b84992839d96eb86, type: 3}
+  - {fileID: 8300000, guid: a5016b5fbb48e69489b8c2ce9682fa0c, type: 3}
+  - {fileID: 8300000, guid: 5f2e0cfc1db5ad0479bda6db424ad21c, type: 3}
   attackVolume: 1
   spottedSounds:
   - {fileID: 8300000, guid: 99b8e430534b3f14f834835d50587da2, type: 3}

@@ -10327,24 +10327,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3281548781864968408, guid: 6b75e05e5c5a1814f8d753d00481d810, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4158805725486338030, guid: 6b75e05e5c5a1814f8d753d00481d810, type: 3}
-      propertyPath: attackSounds.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158805725486338030, guid: 6b75e05e5c5a1814f8d753d00481d810, type: 3}
-      propertyPath: 'attackSounds.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: fba13b27e90ea4e4b84992839d96eb86, type: 3}
-    - target: {fileID: 4158805725486338030, guid: 6b75e05e5c5a1814f8d753d00481d810, type: 3}
-      propertyPath: 'attackSounds.Array.data[1]'
-      value: 
-      objectReference: {fileID: 8300000, guid: a5016b5fbb48e69489b8c2ce9682fa0c, type: 3}
-    - target: {fileID: 4158805725486338030, guid: 6b75e05e5c5a1814f8d753d00481d810, type: 3}
-      propertyPath: 'attackSounds.Array.data[2]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 5f2e0cfc1db5ad0479bda6db424ad21c, type: 3}
     - target: {fileID: 4158805725486338030, guid: 6b75e05e5c5a1814f8d753d00481d810, type: 3}
       propertyPath: 'patrolPoints.Array.data[0]'
       value: 
