@@ -15,6 +15,7 @@ TagManager:
   - Door
   - AmbienceVolume
   - AlienStepSFX
+  - SearchPoint
   layers:
   - Default
   - TransparentFX
