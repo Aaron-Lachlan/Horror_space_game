@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1506239654298330640}
+  - component: {fileID: 6916297298345631783}
   - component: {fileID: 8423362517045931713}
   - component: {fileID: 1372092127896264199}
   - component: {fileID: 445920208225511533}
@@ -40,6 +41,20 @@ Transform:
   - {fileID: 4905338404382920236}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6916297298345631783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209532166046882877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9089aa30addb0d4fbabeae7849e2c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorHideTest
+  globals: {fileID: 0}
+  Testing: 1
 --- !u!114 &8423362517045931713
 MonoBehaviour:
   m_ObjectHideFlags: 0
