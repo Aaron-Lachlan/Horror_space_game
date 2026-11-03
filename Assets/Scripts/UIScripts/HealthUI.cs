@@ -33,7 +33,13 @@ public class HealthUI : MonoBehaviour
 
     public void DisplayHealthUI()
     {
-        if(playerHealthScript.health >= 6.5f)
+        /*if(playerHealthScript.health <= 6.6f)
+        {
+            healthFull.SetActive(true);
+            healthMed.SetActive(false);
+            healthCrit.SetActive(false);
+        }*/
+        if(playerHealthScript.health >= 6.5f || playerHealthScript.health == 10f)
         {
             healthFull.SetActive(true);
             healthMed.SetActive(false);

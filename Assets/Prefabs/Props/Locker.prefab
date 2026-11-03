@@ -323,7 +323,7 @@ Animator:
   m_GameObject: {fileID: 3015669299942137370}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 610bc82f62b0f9a4ca0b4af0ab70e4d6, type: 3}
-  m_Controller: {fileID: 9100000, guid: 818e82c7d5055af4bac7a8602dbd26ab, type: 2}
+  m_Controller: {fileID: 9100000, guid: f0fb159e552c92540aa17312045906ef, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -353,6 +353,7 @@ MonoBehaviour:
   doorOpenMessage: PRESS E TO OPEN LOCKER
   doorCloseMessage: PRESS E TO CLOSE LOCKER
   animator: {fileID: 6867337787281794003}
+  playerFPAnimator: {fileID: 0}
   playerTag: Player
   enemyTag: 
   openCloseAnimBoolName: Open
