@@ -11,6 +11,8 @@ public class EnemySpawner : MonoBehaviour
 
     public FootStepsSFX alienFootStepsSFX;
 
+    public GameObject alienFootStepsSFXObject;
+
 
     private void Awake()
     {
@@ -39,6 +41,8 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator TurnOffTrigger()
     {
         alienFootStepsSFX.AudioSource = GameObject.Find("FeetAlien").GetComponent<AudioSource>();
+
+        alienFootStepsSFXObject.GetComponent<FootStepsSFX>().enabled = true;
 
         yield return new WaitForSeconds(0.5f);
         spawnerTrigger.SetActive(false);
