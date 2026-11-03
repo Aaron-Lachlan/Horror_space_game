@@ -77,10 +77,10 @@ MonoBehaviour:
   deathPanel: {fileID: 7221755909691532040}
   fadeDuration: 1.5
   targetAlpha: 250
-  titleText: {fileID: 0}
-  fontA: {fileID: 0}
-  fontB: {fileID: 0}
-  flashInterval: 0.15
+  titleText: {fileID: 2482011596943225753}
+  fontA: {fileID: 11400000, guid: e2417d8e145938e4694a26407b192504, type: 2}
+  fontB: {fileID: 11400000, guid: 9a3de7a64d04599459e6a926a02f6854, type: 2}
+  flashInterval: 0.8
   buttons:
   - {fileID: 8938724402062067868}
   - {fileID: 8408688829200341898}
@@ -267,6 +267,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1656184081241633201, guid: 4d97095f28782a34ba55358ab763442a, type: 3}
   m_PrefabInstance: {fileID: 670912614506389914}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2482011596943225753 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3116050117212770819, guid: 4d97095f28782a34ba55358ab763442a, type: 3}
+  m_PrefabInstance: {fileID: 670912614506389914}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!224 &5037435973183857032 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5523416607400820754, guid: 4d97095f28782a34ba55358ab763442a, type: 3}

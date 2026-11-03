@@ -24,7 +24,7 @@ public class FootStepsSFX : MaterialType
     [SerializeField] private SurfaceAudioProfile[] surfaceProfiles;
 
     private Dictionary<string, SurfaceAudioProfile> surfaceLookup;
-    [SerializeField] AudioSource AudioSource;
+    [SerializeField] public AudioSource AudioSource;
 
     private int LastPlayedClip;
     private int randomIndex;

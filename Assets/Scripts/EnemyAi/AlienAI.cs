@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,7 +15,7 @@ public class AlienAI : MonoBehaviour
     public enum AlienState { Patrol, Investigate, Chase, Search, Attack }
 
     [Header("References")]
-    [Tooltip("Player to hunt. Auto-finds an object tagged 'Player' if left empty.")]
+    [Tooltip("Player to hunt. Auto-finds an object tagged 'PlayerCharacter' (then 'Player') if left empty.")]
     public Transform player;
     [Tooltip("Head bone/transform. Sight is cast from here and it sweeps left/right while hunting. Leave empty to use the body.")]
     public Transform head;
@@ -54,12 +55,20 @@ public class AlienAI : MonoBehaviour
     public float chaseRepathInterval = 0.2f;
 
     [Header("Patrol")]
-    [Tooltip("Optional patrol route. If empty, the alien roams random reachable NavMesh points within Patrol Radius.")]
+    [Tooltip("Optional patrol route. If empty, it is auto-filled on spawn (see Auto-Find below). If still empty, the alien roams random reachable NavMesh points within Patrol Radius.")]
     public Transform[] patrolPoints;
     public bool randomPatrolOrder = true;
     public float patrolRadius = 20f;
     public float patrolWaitMin = 1f;
     public float patrolWaitMax = 4f;
+
+    [Header("Patrol - Auto-Find Points On Spawn")]
+    [Tooltip("If Patrol Points is empty when the alien spawns, find them in the scene automatically.")]
+    public bool autoFindPatrolPoints = true;
+    [Tooltip("Tried first: every object with this tag becomes a patrol point. Leave blank or undefined to skip.")]
+    public string patrolPointTag = "SearchPoint";
+    [Tooltip("Fallback: objects named this prefix + a number (SP1, SP2, SP 3...) become patrol points, sorted by number.")]
+    public string patrolPointNamePrefix = "SP";
 
     [Header("Chase / Losing the Player")]
     [Tooltip("After losing sight, the alien keeps tracking the player's real position this long (it 'senses' where you went) before it starts searching.")]
@@ -177,19 +186,20 @@ public class AlienAI : MonoBehaviour
     // ---------------------------------------------------------------------
     void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("PlayerCharacter").GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
         agent.updatePosition = true;
         agent.updateRotation = true;
         tempPath = new NavMeshPath();
 
-        if (player == null)
-        {
-            var pgo = GameObject.FindGameObjectWithTag("Player");
-            if (pgo != null) player = pgo.transform;
-        }
+        // Find the player safely (no NullReferenceException if a tag is missing).
+        if (player == null) player = FindTransformWithTag("PlayerCharacter");
+        if (player == null) player = FindTransformWithTag("Player");
+        if (player == null) Debug.LogWarning($"{name}: AlienAI couldn't find the player.");
+
         if (player != null)
             playerCollider = player.GetComponentInChildren<Collider>(); // CharacterController counts
+
+        FindPatrolPoints();
 
         if (head != null) headBaseLocalRot = head.localRotation;
 
@@ -206,10 +216,74 @@ public class AlienAI : MonoBehaviour
         EnterState(AlienState.Patrol, AlienState.Patrol);
     }
 
-    /*void Start()
+    // ---------------------------------------------------------------------
+    //  AUTO-FIND PATROL POINTS
+    // ---------------------------------------------------------------------
+    void FindPatrolPoints()
     {
-        EnterState(AlienState.Patrol, AlienState.Patrol);
-    }*/
+        if (!autoFindPatrolPoints) return;
+
+        // Respect a route assigned in the Inspector.
+        if (patrolPoints != null)
+            foreach (var p in patrolPoints)
+                if (p != null) return;
+
+        var found = new List<Transform>();
+
+        // 1) By tag
+        if (!string.IsNullOrEmpty(patrolPointTag))
+        {
+            try
+            {
+                foreach (var go in GameObject.FindGameObjectsWithTag(patrolPointTag))
+                    found.Add(go.transform);
+            }
+            catch (UnityException) { /* tag not defined in the Tag Manager - skip */ }
+        }
+
+        // 2) By name: prefix + number (SP1, SP2 ... SP6)
+        if (found.Count == 0 && !string.IsNullOrEmpty(patrolPointNamePrefix))
+        {
+            foreach (var t in FindObjectsByType<Transform>(FindObjectsSortMode.None))
+                if (TryGetPointNumber(t.name, out _)) found.Add(t);
+        }
+
+        found.Sort(ComparePatrolPoints);
+        patrolPoints = found.ToArray();
+
+        if (patrolPoints.Length == 0)
+            Debug.LogWarning($"{name}: AlienAI found no patrol points - roaming random NavMesh points instead.");
+        else
+            Debug.Log($"{name}: AlienAI found {patrolPoints.Length} patrol points.");
+    }
+
+    bool TryGetPointNumber(string objName, out int number)
+    {
+        number = 0;
+        if (!objName.StartsWith(patrolPointNamePrefix, System.StringComparison.OrdinalIgnoreCase))
+            return false;
+        string rest = objName.Substring(patrolPointNamePrefix.Length).Trim();
+        return rest.Length > 0 && int.TryParse(rest, out number);
+    }
+
+    // Sorts SP1, SP2 ... SP10 numerically (so the non-random route walks them in order).
+    int ComparePatrolPoints(Transform a, Transform b)
+    {
+        bool aNum = TryGetPointNumber(a.name, out int na);
+        bool bNum = TryGetPointNumber(b.name, out int nb);
+        if (aNum && bNum) return na.CompareTo(nb);
+        return string.CompareOrdinal(a.name, b.name);
+    }
+
+    static Transform FindTransformWithTag(string tag)
+    {
+        try
+        {
+            var go = GameObject.FindGameObjectWithTag(tag);
+            return go != null ? go.transform : null;
+        }
+        catch (UnityException) { return null; } // tag not defined
+    }
 
     // ---------------------------------------------------------------------
     //  MAIN LOOP
@@ -264,11 +338,11 @@ public class AlienAI : MonoBehaviour
     {
         switch (state)
         {
-            case AlienState.Patrol:      TickPatrol(dt); break;
+            case AlienState.Patrol: TickPatrol(dt); break;
             case AlienState.Investigate: TickInvestigate(); break;
-            case AlienState.Chase:       TickChase(dt); break;
-            case AlienState.Search:      TickSearch(dt); break;
-            case AlienState.Attack:      TickAttack(); break;
+            case AlienState.Chase: TickChase(dt); break;
+            case AlienState.Search: TickSearch(dt); break;
+            case AlienState.Attack: TickAttack(); break;
         }
     }
 
@@ -752,6 +826,14 @@ public class AlienAI : MonoBehaviour
         Gizmos.DrawWireSphere(pos, attackRadius);
 
         if (!Application.isPlaying) return;
+
+        // Patrol points found
+        if (patrolPoints != null)
+        {
+            Gizmos.color = new Color(0.4f, 1f, 0.4f, 0.8f);
+            foreach (var p in patrolPoints)
+                if (p != null) Gizmos.DrawWireCube(p.position, Vector3.one * 0.4f);
+        }
 
         // Search area around last known position
         if (hasLastKnownPos)
