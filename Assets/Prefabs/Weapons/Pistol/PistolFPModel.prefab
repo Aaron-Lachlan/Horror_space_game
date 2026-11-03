@@ -275,7 +275,7 @@ MonoBehaviour:
   isArms: 0
   animationAudioSource: {fileID: 8065082148762009778}
   audioResources:
-  - {fileID: 8300000, guid: 057f93f0183110045bd30eef77d4b86f, type: 3}
+  - {fileID: 8300000, guid: c49b69ac06fccd149b16566a56c12686, type: 3}
 --- !u!82 &8065082148762009778
 AudioSource:
   m_ObjectHideFlags: 0

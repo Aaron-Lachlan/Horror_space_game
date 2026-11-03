@@ -10,44 +10,55 @@ public class PauseManager : MonoBehaviour
     [Header("Input Reference")]
     [SerializeField] PlayerInputHandler playerInputHandler;
     [SerializeField] PauseButtonsHandler pauseResumeButton;
-    [SerializeField] PauseButtonsHandler loreResumeButton;
-    [SerializeField] PauseButtonsHandler documentResumeButton;
+    [SerializeField] PauseButtonsHandler pauseResetButton;
+    //[SerializeField] PauseButtonsHandler loreResumeButton;
+    //[SerializeField] PauseButtonsHandler documentResumeButton;
     [SerializeField] Globals globals;
-    [SerializeField] FadeInOut fadeInOut;
-    [SerializeField] List<ItemPickUpHandler> loreItems;
-    [SerializeField] typewriterUI_v2 typeWriterEffect;
+    //[SerializeField] FadeInOut fadeInOut;
+    //[SerializeField] List<ItemPickUpHandler> loreItems;
+    //[SerializeField] typewriterUI_v2 typeWriterEffect;
 
     [Header("Game Object References")]
     //[SerializeField] GameObject globalsObject;
     [SerializeField] GameObject pauseMenuCavas;
-    [SerializeField] GameObject loreScreenCanvas;
-    [SerializeField] GameObject documentScreenCanvas;
-    [SerializeField] GameObject cinematicBoarderCanvas;
-    [SerializeField] GameObject cinematicSkipFadeCanvas;
-    [SerializeField] GameObject loreTextObject;
+    //[SerializeField] GameObject loreScreenCanvas;
+    //[SerializeField] GameObject documentScreenCanvas;
+    //[SerializeField] GameObject cinematicBoarderCanvas;
+    //[SerializeField] GameObject cinematicSkipFadeCanvas;
+    //[SerializeField] GameObject loreTextObject;
 
-    [Header("Text References")]
-    [SerializeField] TextMeshProUGUI loreEntryText;
+    //[Header("Text References")]
+    //[SerializeField] TextMeshProUGUI loreEntryText;
 
     //[Header("Strings")]
     //[SerializeField] string ;
 
-    [Header("Floats")]
-    [SerializeField] float listenerFadeTime;
+    //[Header("Floats")]
+    //[SerializeField] float listenerFadeTime;
 
-    [Header("Ints")]
-    public int loreItemIndex;
+    //[Header("Ints")]
+    //public int loreItemIndex;
 
-    public enum PauseMenuButtons { resume, options, mainMenu };
+    public enum PauseMenuButtons { Resume, Reset, Quit };
     
     public bool isPaused;
-    public bool isLoreScreen;
-    public bool isDocumentScreen;
-    public bool loadMenu;
+    //public bool isLoreScreen;
+    //public bool isDocumentScreen;
+    //public bool loadMenu;
+    public bool resetLevel;
+    public bool quitLevel;
 
     void Awake()
     {
-        
+        if(playerInputHandler == null)
+            playerInputHandler = GameObject.Find("PlayerInputHandler").GetComponent<PlayerInputHandler>();
+
+        if(pauseResumeButton == null)
+            pauseResumeButton = GameObject.Find("ResumeButton").GetComponent<PauseButtonsHandler>();
+
+        if(pauseMenuCavas == null)
+            pauseMenuCavas = GameObject.Find("PauseMenu");
+
     }
 
     private void Update()
@@ -59,7 +70,7 @@ public class PauseManager : MonoBehaviour
 
         if(!globals.isCinematic)
         {
-            if (Input.GetKeyDown ("escape") || pauseResumeButton.resumedClicked || loreResumeButton.resumedClicked || documentResumeButton.resumedClicked)
+            if (Input.GetKeyDown ("escape") || pauseResumeButton.resumedClicked) //|| loreResumeButton.resumedClicked || documentResumeButton.resumedClicked)
             {
                 if(!isPaused)
                 {
@@ -67,7 +78,7 @@ public class PauseManager : MonoBehaviour
                 }
                 else
                 {
-                    if(isLoreScreen)
+                    /*if(isLoreScreen)
                     {
                         UnpauseGameLoreScreen();
                     }
@@ -78,14 +89,25 @@ public class PauseManager : MonoBehaviour
                     else
                     {
                         UnpauseGame();
-                    }
+                    }*/
+                    UnpauseGame();
                     pauseResumeButton.resumedClicked = false;
-                    loreResumeButton.resumedClicked = false;
-                    documentResumeButton.resumedClicked = false;
+                    //loreResumeButton.resumedClicked = false;
+                    //documentResumeButton.resumedClicked = false;
                 }
             }
+            if(pauseResetButton.resetLevelClicked && isPaused)
+            {
+                isPaused = false;
+                globals.enableMovement = true;
+                Time.timeScale = 1f;
+                AudioListener.pause = false;
+                string currentScene = SceneManager.GetActiveScene().name;
+                print("Reset Level.");
+                SceneManager.LoadScene(currentScene);
+            }
         }
-        if(globals.isCinematic && globals.cinematicIsSkipable && Input.GetKeyDown ("escape"))
+        /*if(globals.isCinematic && globals.cinematicIsSkipable && Input.GetKeyDown ("escape"))
         {
             //cinematicSkipFadeInOut.skipFade = true;
             fadeInOut.skipFade = true;
@@ -94,13 +116,13 @@ public class PauseManager : MonoBehaviour
             Debug.Log("Skipped.");
             fadeInOut.FadeIn();
             StartCoroutine(AudioFadeInOut.FadeOutListener(listenerFadeTime));
-        }
+        }*/
     }
 
     public void PauseGame()
     {
         pauseMenuCavas.SetActive(true);
-        cinematicBoarderCanvas.SetActive(false);
+        //cinematicBoarderCanvas.SetActive(false);
         isPaused = true;
         OpenPauseMenu();
         globals.enableMovement = false;
@@ -108,7 +130,7 @@ public class PauseManager : MonoBehaviour
         AudioListener.pause = true;
     }
 
-    public void PauseGameLoreScreen()
+    /*public void PauseGameLoreScreen()
     {
         Debug.Log(loreItems[loreItemIndex].loreEntryTextAsset.ToString());
         loreEntryText.text = loreItems[loreItemIndex].loreEntryTextAsset.ToString();
@@ -120,9 +142,9 @@ public class PauseManager : MonoBehaviour
         globals.enableMovement = false;
         //Time.timeScale = 0f;
         //AudioListener.pause = true;
-    }
+    }*/
 
-    public void PauseGameDocumentScreen()
+    /*public void PauseGameDocumentScreen()
     {
         isPaused = true;
         isDocumentScreen = true;
@@ -132,22 +154,22 @@ public class PauseManager : MonoBehaviour
         globals.enableMovement = false;
         //Time.timeScale = 0f;
         //AudioListener.pause = true;
-    }
+    }*/
 
     public void UnpauseGame()
     {
         pauseMenuCavas.SetActive(false);
-        if(globals.isCinematic)
+        /*if(globals.isCinematic)
         {
             cinematicBoarderCanvas.SetActive(true);
-        }
+        }*/
         isPaused = false;
         ClosePauseMenu();
         globals.enableMovement = true;
         Time.timeScale = 1f;
         AudioListener.pause = false;
     }
-    public void UnpauseGameLoreScreen()
+    /*public void UnpauseGameLoreScreen()
     {
         loreTextObject.SetActive(false);
         loreScreenCanvas.SetActive(false);
@@ -157,9 +179,9 @@ public class PauseManager : MonoBehaviour
         globals.enableMovement = true;
         Time.timeScale = 1f;
         //AudioListener.pause = false;
-    }
+    }*/
 
-    public void UnpauseGameDocumentScreen()
+    /*public void UnpauseGameDocumentScreen()
     {
         //loreTextObject.SetActive(false);
         documentScreenCanvas.SetActive(false);
@@ -169,15 +191,15 @@ public class PauseManager : MonoBehaviour
         globals.enableMovement = true;
         Time.timeScale = 1f;
         //AudioListener.pause = false;
-    }
+    }*/
 
     void OpenPauseMenu()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        if(loadMenu)
+        //if(loadMenu)
             //SceneManager.LoadScene("Menu_A");
-            Debug.Log("Paused!");
+            //Debug.Log("Paused!");
 
     }
 
@@ -203,11 +225,11 @@ public class PauseManager : MonoBehaviour
         Cursor.visible = false;
     }*/
 
-    IEnumerator LoreScreenTextSet()
+    /*IEnumerator LoreScreenTextSet()
     {
         yield return new WaitForSeconds(1f);
         //typeWriterEffect[loreItemIndex].StartTypewriter();
         loreTextObject.SetActive(true);
         yield return null;
-    }
+    }*/
 }

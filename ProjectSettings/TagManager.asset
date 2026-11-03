@@ -15,6 +15,7 @@ TagManager:
   - Door
   - AmbienceVolume
   - AlienStepSFX
+  - TerminalText
   layers:
   - Default
   - TransparentFX

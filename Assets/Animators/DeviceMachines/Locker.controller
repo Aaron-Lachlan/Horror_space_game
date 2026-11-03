@@ -30,7 +30,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DoorClosing
-  m_Speed: 1
+  m_Speed: -1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 6818133824365176462}
@@ -44,7 +44,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1581549795389755900, guid: 4ec066cad2678fa4ab2dbf1c2c914f7c, type: 3}
+  m_Motion: {fileID: -8800838248204228948, guid: 610bc82f62b0f9a4ca0b4af0ab70e4d6, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -202,7 +202,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -3581777694829379869, guid: 4ec066cad2678fa4ab2dbf1c2c914f7c, type: 3}
+  m_Motion: {fileID: -623603649343465320, guid: 610bc82f62b0f9a4ca0b4af0ab70e4d6, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -272,7 +272,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DoorOpening
-  m_Speed: 1.3
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7479878938443301422}
@@ -286,7 +286,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 3316631267659509791, guid: 4ec066cad2678fa4ab2dbf1c2c914f7c, type: 3}
+  m_Motion: {fileID: -8800838248204228948, guid: 610bc82f62b0f9a4ca0b4af0ab70e4d6, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
