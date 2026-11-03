@@ -17,6 +17,7 @@ TagManager:
   - AlienStepSFX
   - SearchPoint
   - Fuse
+  - TerminalText
   layers:
   - Default
   - TransparentFX

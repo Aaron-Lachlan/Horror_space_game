@@ -50,8 +50,8 @@ ModelImporter:
       name: BlastDoorOpening
       takeName: Armature|ArmatureAction
       internalID: 4781951162920444690
-      firstFrame: 18
-      lastFrame: 140
+      firstFrame: 20
+      lastFrame: 141
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -74,7 +74,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
       name: BlastDoorOpen
       takeName: Armature|ArmatureAction

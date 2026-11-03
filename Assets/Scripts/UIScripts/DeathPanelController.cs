@@ -8,6 +8,8 @@ public class DeathPanelController : MonoBehaviour
 {
     [Header ("Global Reference")]
     [SerializeField] Globals globals;
+    PlayerCharacter playerCharacter;
+    //AlienAI alienAI;
 
     [Header("Trigger")]
     [Tooltip("Set this true (from code or the Inspector) to show the death panel.")]
@@ -59,6 +61,10 @@ public class DeathPanelController : MonoBehaviour
 
     private void Awake()
     {
+        playerCharacter = GameObject.FindWithTag("PlayerCharacter").GetComponent<PlayerCharacter>();
+        if(playerCharacter == null)
+            print("Player Character not found!");
+        
         if (deathPanel != null)
         {
             panelGroup = deathPanel.GetComponent<CanvasGroup>();
@@ -86,6 +92,7 @@ public class DeathPanelController : MonoBehaviour
             lastState = isDead;
             if (isDead)
             {
+                playerCharacter._requestedMovement = new Vector3(0f, 0f, 0f);
                 globals.enableMovement = false;
                 Cursor.lockState = CursorLockMode.None;
                 ShowPanel();
