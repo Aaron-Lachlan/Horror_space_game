@@ -9,6 +9,8 @@ public class DemoLevelEndTrigger : MonoBehaviour
         if(other.tag == "PlayerCharacter")
         {
             youWinText.SetActive(true);
+            AudioSource temp = GetComponent<AudioSource>();
+            temp.Play();
             StartCoroutine(WaitBeforeEndLevel());
         }
     }
